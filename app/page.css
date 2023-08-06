@@ -1,0 +1,24 @@
+main {
+  display: grid;
+  padding: 2.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.limc-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  grid-row: span 3 / span 3;
+  grid-column: span 1 / span 1;
+}
+
+@media (min-width: 640px) {
+  main {
+    padding: 1.25rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}

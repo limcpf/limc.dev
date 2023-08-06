@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb-pre: 85, 85, 85;
+  --background-start-rgb: 217, 237, 229;
+  --background-end-rgb: 134, 198, 197;
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", "Noto Sans CJK KR", arial, 돋움, Dotum, Tahoma, Geneva, sans-serif;
+}
+
+.home-box {
+  background: rgba(35,35,155, 0.5);
+  aspect-ratio: 1/1;
+  width: 2.5rem;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+  cursor:pointer;
+}
+.menu-box {
+  display: flex;
+}
+.menu-box > a {
+  font-size: 1.1rem;
+  font-weight: lighter;
+  margin-left: 10px;
+}
+.active {
+  font-weight: normal!important;
+}
+.skeleton {
+  background: rgba(0,0,0,0.2);
+}
+.skeleton-content {
+  background: rgba(0,0,0,0.2);
+}
+.pre-span {
+  font-weight: lighter;
+  font-size:0.7rem;
+  color: var(--foreground-rgb);
+}
+.pre-title > span{
+  color: rgb(var(--foreground-rgb-pre));
+}
+.skeleton-img {
+  border-top-left-radius: 1rem; /* 16px */
+  border-top-right-radius: 1rem; /* 16px */
+  grid-row: span 3 / span 3;
+  background-image: url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8sR4AAkUBeYQzMaEAAAAASUVORK5CYII=");
+}
+.post-card {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  margin-bottom: 0.5rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-column: span 4 / span 4;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.text-es {
+  font-size: 0.6rem;
+}
