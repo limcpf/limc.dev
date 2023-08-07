@@ -4,6 +4,8 @@ import React from "react";
 import localFont from "next/font/local";
 import RootMenu from "@/components/Root/RootMenu";
 import RootLayoutWrapper from "@/components/Root/RootLayoutWrapper";
+import {ErrorBoundary} from "next/dist/client/components/error-boundary";
+import ErrorPage from "@/app/error";
 
 const local = localFont({
   src: [
@@ -43,10 +45,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={local.className + " flex flex-col items-center min-h-screen "}>
+      <ErrorBoundary errorComponent={ErrorPage}>
         <RootLayoutWrapper>
           <RootMenu />
           {children}
         </RootLayoutWrapper>
+      </ErrorBoundary>
       </body>
     </html>
   )
