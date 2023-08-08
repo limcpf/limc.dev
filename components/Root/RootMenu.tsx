@@ -14,7 +14,7 @@ export default function RootMenu() {
   const router = useRouter();
 
   return (
-      <div className="flex items-center justify-between w-full p-5 border-b-gray-500 border-b">
+      <header className="flex items-center justify-between w-full p-5 border-b-gray-500 border-b">
         <div className="home-box" onClick={() => router.push("/")}>L</div>
         <div className="menu-box">
           {
@@ -26,6 +26,6 @@ export default function RootMenu() {
             )
           }
         </div>
-      </div>
+      </header>
   )
 }
