@@ -6,6 +6,7 @@ import RootMenu from "@/components/Root/RootMenu";
 import RootLayoutWrapper from "@/components/Root/RootLayoutWrapper";
 import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 import ErrorPage from "@/app/error";
+import Script from "next/script";
 
 const local = localFont({
   src: [
@@ -56,6 +57,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={local.className + " flex flex-col items-center min-h-screen "}>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-C1DF72PZS4" />
+      <Script
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'G-C1DF72PZS4');`
+          }}
+      />
       <ErrorBoundary errorComponent={ErrorPage}>
         <RootLayoutWrapper>
           <RootMenu />
@@ -63,6 +75,7 @@ export default function RootLayout({
         </RootLayoutWrapper>
       </ErrorBoundary>
       </body>
+
     </html>
   )
 }
