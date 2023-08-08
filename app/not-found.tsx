@@ -19,7 +19,7 @@ export default function ErrorPage() {
         <br />
         찾으시는 포스트나 컨텐츠가 삭제되었을 가능성도 있습니다.
         <br />
-        기타 문의 사항은 daeseong0226@gmail.com 으로 주시면 감사하겠습니다.
+        기타 문의 사항은 limcdevblog@gmail.com 으로 주시면 감사하겠습니다.
       </div>
     </div>
   );

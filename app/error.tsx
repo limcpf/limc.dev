@@ -17,7 +17,7 @@ export default function ErrorPage() {
       <div className="text-center leading-8">
         죄송합니다. 서버측에 에러가 발생하였습니다.
         <br />
-        해당 화면이 다시 발생 시 daeseong0226@gmail.com 로 제보해주시면
+        해당 화면이 다시 발생 시 limcdevblog@gmail.com 로 제보해주시면
         감사하겠습니다.
         <br />
         블로그 이용 중 불편을 드려 죄송합니다.

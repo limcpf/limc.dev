@@ -1,6 +1,6 @@
 import "./post.css";
 import PostWrapper from "@/components/Post/PostWrapper";
-import { getPost } from "@/libs/api/Post.api";
+import {getPost} from "@/libs/api/Post.api";
 
 let title: string;
 let description: string;
@@ -29,7 +29,7 @@ export async function generateMetadata() {
     openGraph: {
       title: title,
       description: description,
-      emails: "daeseong0226@gmail.com",
+      emails: "limcdevblog@gmail.com",
       siteName: "limc.dev",
       type: "website",
     },

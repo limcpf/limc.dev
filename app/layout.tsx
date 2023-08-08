@@ -1,10 +1,10 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import React from "react";
 import localFont from "next/font/local";
 import RootMenu from "@/components/Root/RootMenu";
 import RootLayoutWrapper from "@/components/Root/RootLayoutWrapper";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import {ErrorBoundary} from "next/dist/client/components/error-boundary";
 import ErrorPage from "@/app/error";
 import Script from "next/script";
 
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "LimC Dev",
     description: "개발 공부 관련된 기록을 저장하는 블로그입니다.",
-    emails: "daeseong0226@gmail.com",
+    emails: "limcdevblog@gmail.com",
     siteName: "limc.dev",
     type: "website",
   },

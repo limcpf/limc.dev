@@ -3,9 +3,9 @@ import Markdown from "@/components/Util/Markdown";
 export default function Home() {
   const content = `
   ## 소개
-  안녕하세요. limc.dev 블로그를 운영하고 있는 20대 후반 임대성이라고 합니다.
+  안녕하세요. limc.dev 블로그를 운영하고 있는 20대 후반 남성입니다.
   
-  현재 티시스라는 회사에서 보험 IT 업무를 맡고있습니다.
+  현재 보험회사의 수행사에 재직하면서 보험 기간계 유지보수 업무를 맡고있습니다.
   
   해당 블로그는 제가 공부한 내용을 올리기 위한 블로그로 각 게시글의 내용이 정확하지 않을 수 있습니다.
     - 만약 내용 정정이나 개인 의견을 전하고 싶으시다면 하단의 이메일로 보내주시면 적극 반영하겠습니다.
@@ -23,7 +23,7 @@ export default function Home() {
       - 이전 회사에서는 Vue.js 를 사용한 플랫폼 개발도 참여하였습니다.
   
   ## Contact
-  - Email : daeseong0226@gmail.com
+  - Email : limcdevblog@gmail.com
   
   2023.08.06
   `;
