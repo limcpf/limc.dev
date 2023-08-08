@@ -1,10 +1,10 @@
 import Post from "@/libs/class/Post.class";
 
 export const dummyPost = new Post(
-    "test",
-    "정당의 설립은 자유이며, 복수정당제는 보장된다",
-    "summary",
-    `# 3주차 정리
+  "test",
+  "정당의 설립은 자유이며, 복수정당제는 보장된다",
+  "summary",
+  `# 3주차 정리
 ## 애자일 방법론
 
 ---
@@ -72,11 +72,11 @@ export const dummyPost = new Post(
 - Junit Vintage
     - Junit 하위호환을 위한 엔진
 - Junit 5는 Java8 이상에서만 사용이 가능하다!`,
-    "DEV",
-    "/",
-    "JAVA",
-    "/",
-    "시리즈 입니다.",
-    new Date().toLocaleString(),
-    new Date().toString()
-)
+  "DEV",
+  "/",
+  "JAVA",
+  "/",
+  "시리즈 입니다.",
+  new Date().toLocaleString(),
+  new Date().toString(),
+);

@@ -1,22 +1,21 @@
-import './post.css';
+import "./post.css";
 import PostWrapper from "@/components/Post/PostWrapper";
-import {getPost} from "@/libs/api/Post.api";
-
+import { getPost } from "@/libs/api/Post.api";
 
 let title: string;
 let description: string;
 
 export default async function RootPost({
-   params
+  params,
 }: {
-  params: { id: string}
+  params: { id: string };
 }) {
   const post = await getPost(params.id);
 
   title = "LimC | " + post.title;
   description = post.summary;
 
-  return(<PostWrapper post={post} />);
+  return <PostWrapper post={post} />;
 }
 
 export async function generateMetadata() {
@@ -25,14 +24,14 @@ export async function generateMetadata() {
     description: description,
     authors: {
       url: "https://github.com/limcpf",
-      name: "LimC"
+      name: "LimC",
     },
     openGraph: {
       title: title,
       description: description,
       emails: "daeseong0226@gmail.com",
-      siteName:"limc.dev",
-      type: "website"
-    }
-  }
+      siteName: "limc.dev",
+      type: "website",
+    },
+  };
 }

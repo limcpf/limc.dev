@@ -26,11 +26,10 @@ export default function Home() {
   - Email : daeseong0226@gmail.com
   
   2023.08.06
-  `
+  `;
   return (
     <main className="flex flex-col p-3 min-h-screen w-full leading-8 list-disc">
-        <Markdown content={content} />
+      <Markdown content={content} />
     </main>
-  )
+  );
 }
-

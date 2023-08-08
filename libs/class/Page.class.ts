@@ -2,56 +2,56 @@ export default class Page<T> {
   content: [T];
   pageable: {
     sort: {
-      empty: boolean,
-      sorted: boolean,
-      unsorted: boolean
-    },
-    offset: number,
-    pageNumber: number,
-    pageSize: number,
-    paged: boolean,
-    unpaged: boolean
+      empty: boolean;
+      sorted: boolean;
+      unsorted: boolean;
+    };
+    offset: number;
+    pageNumber: number;
+    pageSize: number;
+    paged: boolean;
+    unpaged: boolean;
   };
 
   last: boolean;
   totalPages: number;
   totalElements: number;
-  first:boolean;
-  size:number;
+  first: boolean;
+  size: number;
   sort: {
-    empty: boolean,
-    sorted: boolean,
-    unsorted: boolean
+    empty: boolean;
+    sorted: boolean;
+    unsorted: boolean;
   };
   numberOfElements: number;
   empty: boolean;
 
   constructor(
-      content: [T],
-      pageable: {
-        sort: {
-          empty: boolean,
-          sorted: boolean,
-        unsorted: boolean
-        },
-        offset: number,
-        pageNumber: number,
-        pageSize: number,
-        paged: boolean,
-        unpaged: boolean
-      },
-      last: boolean,
-      totalPages: number,
-      totalElements: number,
-      first:boolean,
-      size:number,
+    content: [T],
+    pageable: {
       sort: {
-        empty: boolean,
-        sorted: boolean,
-        unsorted: boolean
-      },
-      numberOfElements: number,
-      empty: boolean
+        empty: boolean;
+        sorted: boolean;
+        unsorted: boolean;
+      };
+      offset: number;
+      pageNumber: number;
+      pageSize: number;
+      paged: boolean;
+      unpaged: boolean;
+    },
+    last: boolean,
+    totalPages: number,
+    totalElements: number,
+    first: boolean,
+    size: number,
+    sort: {
+      empty: boolean;
+      sorted: boolean;
+      unsorted: boolean;
+    },
+    numberOfElements: number,
+    empty: boolean,
   ) {
     this.content = content;
     this.pageable = pageable;
@@ -64,5 +64,4 @@ export default class Page<T> {
     this.numberOfElements = numberOfElements;
     this.empty = empty;
   }
-
 }
