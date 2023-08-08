@@ -23,7 +23,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "rome": "^12.1.3"
   }
 }

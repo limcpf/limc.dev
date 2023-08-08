@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm rome format app libs components --write && git add . && git commit -m "auto: formatting"
+rome format app libs components --write && git add . && git commit -m "auto: formatting"
