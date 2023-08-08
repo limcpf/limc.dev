@@ -55,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="kr">
       <body className={local.className + " flex flex-col items-center min-h-screen "}>
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-C1DF72PZS4" />
       <Script
