@@ -26,6 +26,13 @@ export async function generateMetadata() {
     authors: {
       url: "https://github.com/limcpf",
       name: "LimC"
+    },
+    openGraph: {
+      title: title,
+      description: description,
+      emails: "daeseong0226@gmail.com",
+      siteName:"limc.dev",
+      type: "website"
     }
   }
 }

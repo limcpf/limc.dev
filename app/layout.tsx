@@ -10,22 +10,22 @@ import ErrorPage from "@/app/error";
 const local = localFont({
   src: [
     {
-      path: "./assets/font/NanumSquareNeoTTF-aLt.woff",
+      path: "./assets/font/NanumSquareNeoTTF-aLt.woff2",
       weight: "200",
       style: "lighter",
     },
     {
-      path: "./assets/font/NanumSquareNeoTTF-bRg.woff",
+      path: "./assets/font/NanumSquareNeoTTF-bRg.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./assets/font/NanumSquareNeoTTF-cBd.woff",
+      path: "./assets/font/NanumSquareNeoTTF-cBd.woff2",
       weight: "600",
       style: "bold",
     },
     {
-      path: "./assets/font/NanumSquareNeoTTF-dEb.woff",
+      path: "./assets/font/NanumSquareNeoTTF-dEb.woff2",
       weight: "700",
       style: "bolder",
     },
@@ -34,7 +34,18 @@ const local = localFont({
 
 export const metadata: Metadata = {
   title: 'LimC',
-  description: '개발 공부 기록장'
+  description: '개발 공부 관련된 기록을 저장하는 블로그입니다.',
+  authors: {
+    url: "https://limc.dev",
+    name: "LimC"
+  },
+  openGraph: {
+    title: "LimC Dev",
+    description: "개발 공부 관련된 기록을 저장하는 블로그입니다.",
+    emails: "daeseong0226@gmail.com",
+    siteName:"limc.dev",
+    type: "website"
+  }
 }
 
 export default function RootLayout({

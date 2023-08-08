@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private*/
+Disallow: /admin*/
+Disallow: /img*/
+Sitemap: https://limc.dev/sitemap.xml
