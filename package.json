@@ -1,6 +1,6 @@
 {
-  "name": "dev.limc.kr",
-  "version": "0.1.0",
+  "name": "limc.dev",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,9 +14,6 @@
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
-    "headroom.js": "^0.12.0",
-    "lodash": "^4.17.21",
-    "marked": "^6.0.0",
     "marked-react": "^2.0.0",
     "next": "13.4.12",
     "postcss": "8.4.27",

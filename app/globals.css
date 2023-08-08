@@ -2,16 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --foreground-rgb-pre: 85, 85, 85;
-  --background-start-rgb: 217, 237, 229;
-  --background-end-rgb: 134, 198, 197;
-}
 
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", "Noto Sans CJK KR", arial, 돋움, Dotum, Tahoma, Geneva, sans-serif;
 }
 
