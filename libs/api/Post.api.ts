@@ -14,7 +14,7 @@ export async function getPostPage(page?: string) {
     const json = await t.json();
     return json as Page<Post>;
   } else {
-    throw new Error("통신 실패");
+    throw new Error(t.statusText);
   }
 }
 export async function getPost(id: string) {
@@ -28,6 +28,6 @@ export async function getPost(id: string) {
     const json = await t.json();
     return json as Post;
   } else {
-    throw new Error("통신 실패");
+    throw new Error(t.statusText);
   }
 }
