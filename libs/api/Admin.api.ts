@@ -1,18 +1,20 @@
 import {NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/Api.constant";
 import {AdminDto} from "@/libs/dto/admin/AdminDto";
-import Login from "@/libs/class/Login.class";
+import LoginDto from "@/libs/dto/admin/LoginDto";
 
-export async function login(name: string, password:string, id?: string) {
+export async function login(adminDto:AdminDto) {
+  console.log(adminDto);
   const t = await fetch(
-      `${NEXT_PUBLIC_SERVER_URL}/public/login`, {
+      `${NEXT_PUBLIC_SERVER_URL}/api/public/login`, {
         method: "POST",
-        body: JSON.stringify(new AdminDto(name, password, id)),
+        body: JSON.stringify(adminDto),
+        headers: new Headers({'content-type': 'application/json'})
       }
   );
 
   if (t.ok) {
     const json = await t.json();
-    return json as Login;
+    return json as LoginDto;
   } else {
     throw new Error(t.statusText);
   }

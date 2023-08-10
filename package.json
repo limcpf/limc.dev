@@ -14,6 +14,7 @@
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "jsonwebtoken": "^9.0.1",
     "marked-react": "^2.0.0",
     "next": "13.4.12",
     "postcss": "8.4.27",
@@ -23,6 +24,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
     "husky": "^8.0.0",
     "rome": "^12.1.3"
   }
