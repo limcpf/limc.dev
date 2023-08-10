@@ -1,7 +1,7 @@
 export class AdminDto {
-  id?: String;
-  name: String;
-  password: String;
+  id?: string;
+  name: string;
+  password: string;
 
   constructor(name: string, password: string, id?: string) {
     if(id) this.id = id;

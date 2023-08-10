@@ -1,7 +1,7 @@
 export class Admin {
-  id: String;
-  name: String;
-  password: String;
+  id: string;
+  name: string;
+  password: string;
 
   constructor(id:string, name: string, password: string) {
     this.id = id;
