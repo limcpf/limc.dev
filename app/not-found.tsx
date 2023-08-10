@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function ErrorPage() {
+export default function NotFound() {
   return (
     <div className="flex flex-col items-center w-full py-10 px-5 h-screen">
       <div className="font-bold text-3xl">찾으시는 페이지가 없어요</div>

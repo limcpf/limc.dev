@@ -246,4 +246,5 @@ buildNumber.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,maven,git,kotlin,macos
 
-env.local
+.env.local
+.env.development

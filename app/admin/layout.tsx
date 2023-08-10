@@ -1,0 +1,20 @@
+import React from "react";
+import {cookies} from "next/headers";
+import AdminLogin from "@/components/Admin/AdminLogin";
+
+export default function AdminLayout({
+    children
+                                    }: {
+  children: React.ReactNode;
+}) {
+  const cookie= cookies();
+  const token = cookie.get("accessToken");
+
+  return (<>
+    {
+      !!token
+        ? <>{children}</>
+        : (<AdminLogin  />)
+    }
+  </>);
+}
