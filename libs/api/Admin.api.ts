@@ -3,7 +3,7 @@ import {AdminDto} from "@/libs/dto/admin/AdminDto";
 import LoginDto from "@/libs/dto/admin/LoginDto";
 
 export async function login(adminDto:AdminDto) {
-  console.log(adminDto);
+
   const t = await fetch(
       `${NEXT_PUBLIC_SERVER_URL}/api/public/login`, {
         method: "POST",

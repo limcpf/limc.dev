@@ -11,13 +11,9 @@ export default function AdminLogin() {
 
     let name;
     let pw;
-    console.log(nameRef.current);
-    console.log(pwRef.current);
 
     if(nameRef.current && pwRef.current) {
       name = nameRef.current.value;
-      console.log(`name : ${name}`)
-      console.log(`process.env.NEXT_PUBLIC_ADMIN_NAME : ${process.env.NEXT_PUBLIC_ADMIN_NAME}`);
       if(name !== process.env.NEXT_PUBLIC_ADMIN_NAME) {
         alert("존재하지 않는 ID 입니다.");
         return;
@@ -42,7 +38,6 @@ export default function AdminLogin() {
           location.reload();
         })
       .catch((e) => {
-          console.log(e);
           alert("ID, PW 가 올바르지 않습니다.");
       });
     }

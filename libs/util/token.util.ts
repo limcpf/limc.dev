@@ -11,8 +11,6 @@ export const validateToken = (accessToken: string) => {
   try {
     const decode = jwt.verify(accessToken, key) as jwt.JwtPayload;
 
-    console.log(decode);
-
     if(decode.exp && Date.now() / 1000 > decode.exp) return fail;
 
     return ({
@@ -20,7 +18,6 @@ export const validateToken = (accessToken: string) => {
       exp: decode.exp
     });
   } catch (e) {
-    console.log(e);
     return fail;
   }
 }
