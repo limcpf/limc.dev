@@ -5,7 +5,7 @@ import LoginDto from "@/libs/dto/admin/LoginDto";
 export async function login(adminDto:AdminDto) {
 
   const t = await fetch(
-      `${NEXT_PUBLIC_SERVER_URL}/api/public/login`, {
+      `https://api.limc.dev/public/login`, {
         method: "POST",
         body: JSON.stringify(adminDto),
         headers: new Headers({'content-type': 'application/json'})
