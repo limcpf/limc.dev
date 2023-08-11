@@ -1,4 +1,3 @@
-import {NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/Api.constant";
 import {AdminDto} from "@/libs/dto/admin/AdminDto";
 import LoginDto from "@/libs/dto/admin/LoginDto";
 
@@ -8,7 +7,8 @@ export async function login(adminDto:AdminDto) {
       `https://api.limc.dev/public/login`, {
         method: "POST",
         body: JSON.stringify(adminDto),
-        headers: new Headers({'content-type': 'application/json'})
+        headers: new Headers({'content-type': 'application/json'}),
+        credentials: "include"
       }
   );
 
