@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 
+const getError = {
+
+}
+
 export default function ErrorPage({error}:{error:Error}) {
+
   return (
     <div className="flex flex-col items-center w-full py-10 px-5 h-screen">
       <div className="font-bold text-3xl">서버 오류</div>

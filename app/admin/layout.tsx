@@ -8,7 +8,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const cookie= cookies();
-  const token = cookie.get("accessToken");
+  const token = cookie.get("Authorization");
 
   return (<>
     {
