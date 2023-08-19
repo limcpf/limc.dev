@@ -5,11 +5,8 @@ import Page from "../class/Page.class";
 import Post from "../class/Post.class";
 import {METHOD, METHODS} from "./Constant.api";
 import PostDto from "@/libs/dto/admin/PostDto";
-import {cookies} from "next/headers";
 
 async function adminFetch(url: string, method:METHOD, body?: any) {
-    let json;
-
     let header: Headers = new Headers();
     header.set("Content-type", "application/json");
     const option: RequestInit = {

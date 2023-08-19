@@ -4,7 +4,6 @@ import PostPageBar from "@/components/Post/PostPageBar";
 import { getPostPageInAdmin } from "@/libs/api/Admin.api";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import React, {useEffect, useState} from "react";
-import PostCard from "@/components/Post/Card/PostCard";
 import Page from "@/libs/class/Page.class";
 import Post from "@/libs/class/Post.class";
 import AdminPostCard from "@/components/Admin/AdminPost/AdminPostCard/AdminPostCard";
