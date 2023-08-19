@@ -4,7 +4,6 @@ import Link from "next/link";
 export default function PostCardDesc({
   id,
   summary,
-  isAdmin,
 }: {
   id: string;
   summary: string;

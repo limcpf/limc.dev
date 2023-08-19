@@ -37,7 +37,7 @@ export default function AdminLogin() {
           alert("로그인 성공!");
           location.reload();
         })
-        .catch((e) => {
+        .catch(() => {
           alert("ID, PW 가 올바르지 않습니다.");
         });
     }
