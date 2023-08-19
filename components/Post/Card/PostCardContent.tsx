@@ -3,12 +3,13 @@ import PostCardDesc from "@/components/Post/Card/PostCardDesc";
 import Post from "@/libs/class/Post.class";
 
 export default function PostCardContent({
-  post, isAdmin
+  post,
+  isAdmin,
 }: {
   post: Post;
   isAdmin?: boolean;
 }) {
-  const {  id, summary } = post;
+  const { id, summary } = post;
 
   return (
     <div

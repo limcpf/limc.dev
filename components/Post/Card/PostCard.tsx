@@ -2,14 +2,14 @@
 
 import Post from "@/libs/class/Post.class";
 import PostCardContent from "@/components/Post/Card/PostCardContent";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function PostCard({
   post,
-    isAdmin
+  isAdmin,
 }: {
-  post: Post,
-  isAdmin?: boolean
+  post: Post;
+  isAdmin?: boolean;
 }) {
   const router = useRouter();
   return (
@@ -20,7 +20,9 @@ export default function PostCard({
             border-b-gray-300 border-b
             first:border-t-0
           "
-      onClick={() => router.push(isAdmin ? `/admin/post/${post.id}` : `/post/${post.id}`)}
+      onClick={() =>
+        router.push(isAdmin ? `/admin/post/${post.id}` : `/post/${post.id}`)
+      }
     >
       <PostCardContent post={post} isAdmin={isAdmin} />
       <div className="text-es text-gray-400 text-right font-extralight">

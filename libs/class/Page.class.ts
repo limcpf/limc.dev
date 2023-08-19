@@ -67,31 +67,31 @@ export default class Page<T> {
 
   static getEmptyPage() {
     return new Page(
-        [],
-        {
-          sort: {
-            empty: false,
-            sorted: false,
-            unsorted: false,
-          },
-          offset: 0,
-          pageNumber: 0,
-          pageSize: 0,
-          paged: false,
-          unpaged: false
-        },
-        false,
-        0,
-        0,
-        false,
-        0,
-        {
+      [],
+      {
+        sort: {
           empty: false,
           sorted: false,
           unsorted: false,
         },
-        0,
-        false
-    )
+        offset: 0,
+        pageNumber: 0,
+        pageSize: 0,
+        paged: false,
+        unpaged: false,
+      },
+      false,
+      0,
+      0,
+      false,
+      0,
+      {
+        empty: false,
+        sorted: false,
+        unsorted: false,
+      },
+      0,
+      false,
+    );
   }
 }
