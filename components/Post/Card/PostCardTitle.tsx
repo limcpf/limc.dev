@@ -2,9 +2,10 @@ import Link from "next/link";
 import Post from "@/libs/class/Post.class";
 
 export default function PostCardTitle({
-  post,
+  post, isAdmin
 }: {
   post: Post;
+  isAdmin?: boolean;
 }) {
   const { topicName, topic, seriesName, series, title, id } = post;
   return (

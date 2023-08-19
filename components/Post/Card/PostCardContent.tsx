@@ -1,11 +1,12 @@
-import PostCardTitle from "@/components/Post/card/PostCardTitle";
-import PostCardDesc from "@/components/Post/card/PostCardDesc";
+import PostCardTitle from "@/components/Post/Card/PostCardTitle";
+import PostCardDesc from "@/components/Post/Card/PostCardDesc";
 import Post from "@/libs/class/Post.class";
 
 export default function PostCardContent({
-  post,
+  post, isAdmin
 }: {
   post: Post;
+  isAdmin?: boolean;
 }) {
   const {  id, summary } = post;
 
@@ -18,8 +19,8 @@ export default function PostCardContent({
           flex flex-col
         "
     >
-      <PostCardTitle post={post} />
-      <PostCardDesc id={id} summary={summary} />
+      <PostCardTitle post={post} isAdmin={isAdmin} />
+      <PostCardDesc id={id} summary={summary} isAdmin={isAdmin} />
     </div>
   );
 }
