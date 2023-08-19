@@ -8,6 +8,7 @@ export default class Post {
   topicName: string;
   series?: string;
   seriesName?: string;
+  isPublished: boolean;
   createdAt: string;
   updatedAt: string;
 
@@ -21,6 +22,7 @@ export default class Post {
     topicName: string,
     series: string,
     seriesName: string,
+    isPublished: boolean,
     createdAt: string,
     updatedAt: string,
   ) {
@@ -33,6 +35,7 @@ export default class Post {
     this.topicName = topicName;
     this.series = series;
     this.seriesName = seriesName;
+    this.isPublished = isPublished;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
