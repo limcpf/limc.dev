@@ -23,7 +23,6 @@ export default function adminMain(
                 setContent(page.content);
                 setPostPage(page)
             })
-            .catch(e => console.log(e));
     }, [])
 
 
