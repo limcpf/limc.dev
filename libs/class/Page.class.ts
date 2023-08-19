@@ -1,5 +1,5 @@
 export default class Page<T> {
-  content: [T];
+  content: T[];
   pageable: {
     sort: {
       empty: boolean;
@@ -27,7 +27,7 @@ export default class Page<T> {
   empty: boolean;
 
   constructor(
-    content: [T],
+    content: T[],
     pageable: {
       sort: {
         empty: boolean;
@@ -63,5 +63,35 @@ export default class Page<T> {
     this.sort = sort;
     this.numberOfElements = numberOfElements;
     this.empty = empty;
+  }
+
+  static getEmptyPage() {
+    return new Page(
+      [],
+      {
+        sort: {
+          empty: false,
+          sorted: false,
+          unsorted: false,
+        },
+        offset: 0,
+        pageNumber: 0,
+        pageSize: 0,
+        paged: false,
+        unpaged: false,
+      },
+      false,
+      0,
+      0,
+      false,
+      0,
+      {
+        empty: false,
+        sorted: false,
+        unsorted: false,
+      },
+      0,
+      false,
+    );
   }
 }

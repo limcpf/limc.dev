@@ -7,6 +7,7 @@ export default function PostCardDesc({
 }: {
   id: string;
   summary: string;
+  isAdmin?: boolean;
 }) {
   return (
     <div className="text-xs leading-5 line-clamp-3 font-light whitespace-normal break-words ">

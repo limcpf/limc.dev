@@ -1,11 +1,13 @@
 import Post from "@/libs/class/Post.class";
 import Page from "@/libs/class/Page.class";
-import {NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/Api.constant";
-
+import { NEXT_PUBLIC_SERVER_URL } from "@/libs/constant/Api.constant";
 
 export async function getPostPage(page?: string) {
   const t = await fetch(
     `${NEXT_PUBLIC_SERVER_URL}/api/public/post/site/DEV?page=${page || "1"}`,
+    {
+      next: { revalidate: 60 },
+    },
   );
   if (t.ok) {
     const json = await t.json();

@@ -5,6 +5,7 @@ export default function PostCardTitle({
   post,
 }: {
   post: Post;
+  isAdmin?: boolean;
 }) {
   const { topicName, topic, seriesName, series, title, id } = post;
   return (

@@ -1,6 +1,6 @@
 import "./post.css";
 import PostWrapper from "@/components/Post/PostWrapper";
-import {getPost} from "@/libs/api/Post.api";
+import { getPost } from "@/libs/api/Post.api";
 
 let title: string;
 let description: string;

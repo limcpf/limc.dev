@@ -1,0 +1,43 @@
+.post-wrapper {
+  margin: auto;
+  padding: 3rem;
+  line-height: 1.75;
+  font-weight: lighter;
+  font-size: 1.05em;
+}
+.post-content {
+  font-weight: normal;
+}
+.post-content > *{
+  margin: 1.5rem 0;
+}
+.post-content > p{
+  padding: 0 0.8rem;
+}
+.line-style {
+  line-height: 2rem;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+ol {
+  list-style-type: decimal;
+}
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.3rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
+
+.post-content > ul > li > ul{
+  list-style-type: square;
+}
+.post-content > ul > li > ul > li > ul{
+  list-style-type: circle;
+}
+p > img {
+  position: relative!important;
+}

@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
-const API_SERVER_URL = process.env.NODE_ENV === "development" ? "http://localhost:8080" : process.env.API_SERVER_URL;
+const API_SERVER_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080"
+    : process.env.API_SERVER_URL;
 
 const nextConfig = {
   compress: true,
   images: {
-    domains: ['files.limc.dev'],
+    domains: ["files.limc.dev"],
   },
   async rewrites() {
     return [
@@ -14,6 +17,6 @@ const nextConfig = {
       },
     ];
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
