@@ -10,9 +10,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@types/node": "20.4.4",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "jsonwebtoken": "^9.0.1",
     "marked-react": "^2.0.0",
@@ -25,6 +22,9 @@
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.2",
+    "@types/node": "20.4.4",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
     "husky": "^8.0.0",
     "rome": "^12.1.3"
   }
