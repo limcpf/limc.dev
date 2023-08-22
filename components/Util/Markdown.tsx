@@ -16,11 +16,11 @@ SyntaxHighlighter.registerLanguage('shell', shell);
 
 const renderer = {
   image(src: string, alt: string, title?: string | null) {
-    return <Image src={src} alt={alt} layout="fill" sizes="100%" />;
+    return (<Image key={alt} src={src} alt={alt} layout="fill" sizes="100%" />);
   },
   code(code: any, lang:string | undefined) {
     return (
-          <SyntaxHighlighter className="!p-5" language={lang} style={darcula}>
+          <SyntaxHighlighter className="!px-3 !py-5" language={lang} style={darcula}>
             {code}
           </SyntaxHighlighter>
     )
