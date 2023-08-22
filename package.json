@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
+    "github-markdown-css": "^5.2.0",
     "jsonwebtoken": "^9.0.1",
     "marked-react": "^2.0.0",
     "next": "13.4.12",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
   },
@@ -25,6 +27,7 @@
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "husky": "^8.0.0",
     "rome": "^12.1.3"
   }
