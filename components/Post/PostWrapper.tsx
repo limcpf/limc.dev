@@ -1,3 +1,4 @@
+import "github-markdown-css";
 import Post from "@/libs/class/Post.class";
 import PostTitle from "@/components/Post/PostTitle";
 import PostContent from "@/components/Post/PostContent";
@@ -7,9 +8,10 @@ export default function PostWrapper({
 }: {
   post: Post;
 }) {
-  return (
-    <article className="post-wrapper w-full flex flex-col p-5">
-      <div className="w-full flex flex-col">
+
+    return (
+    <article className="markdown-body post-wrapper w-full flex flex-col">
+      <div className="flex flex-col">
         <PostTitle title={post.title} />
         <PostContent content={post.content} />
       </div>
