@@ -1,68 +1,32 @@
 "use client";
+import './Markdown.css';
+import "github-markdown-css/github-markdown-light.css";
 import Marked from "marked-react";
-import { ReactNode } from "react";
 import Image from "next/image";
-import { random } from "nanoid";
+
+import {Light as SyntaxHighlighter} from 'react-syntax-highlighter';
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import java from 'react-syntax-highlighter/dist/esm/languages/hljs/java';
+import kotlin from 'react-syntax-highlighter/dist/esm/languages/hljs/kotlin';
+import shell from 'react-syntax-highlighter/dist/esm/languages/hljs/shell';
+
+SyntaxHighlighter.registerLanguage('java', java);
+SyntaxHighlighter.registerLanguage('kotlin', kotlin);
+SyntaxHighlighter.registerLanguage('shell', shell);
 
 const renderer = {
-  blockquote(children: ReactNode) {
-    return (
-      <blockquote className="bg-gray-100 rounded p-5 text-sm">
-        {children}
-      </blockquote>
-    );
-  },
-  list(children: ReactNode, ordered: boolean) {
-    if (ordered) return <ol className="line-style">{children}</ol>;
-    return (
-      <ul key={random(3).toString()} className="line-style">
-        {children}
-      </ul>
-    );
-  },
-  listItem(children: ReactNode[]) {
-    // @ts-ignore
-    return (
-      <li
-        key={random(3).toString()}
-        className="text-md px-3 whitespace-pre-line ps-6"
-      >
-        {children}
-      </li>
-    );
-  },
-  heading(text: string, level: number) {
-    const t = "before:bg-black before:p-1 before:mr-3 font-bold";
-    const hs = {
-      "1": (
-        <h1 key={`${level}-${text}`} className={t}>
-          {text}
-        </h1>
-      ),
-      "2": (
-        <h3 key={`${level}-${text}`} className={t}>
-          {text}
-        </h3>
-      ),
-      "3": (
-        <h5 key={`${level}-${text}`} className={t}>
-          {text}
-        </h5>
-      ),
-    };
-
-    // @ts-ignore
-    return <div key={`${level}-${text}-div`}>{hs[`${level}`]}</div>;
-  },
   image(src: string, alt: string, title?: string | null) {
-    return <Image src={src} alt={alt} layout="fill" sizes="100%" />;
+    return (<Image key={alt} src={src} alt={alt} layout="fill" sizes="100%" />);
   },
-  paragraph(children: ReactNode) {
-    // @ts-ignore
-    return <p key={children.toString()}>{children}</p>;
-  },
+  code(code: any, lang:string | undefined) {
+    return (
+          <SyntaxHighlighter className="!px-3 !py-5" language={lang} style={darcula}>
+            {code}
+          </SyntaxHighlighter>
+    )
+  }
 };
 
 export default function Markdown({ content }: { content: string }) {
-  return <Marked renderer={renderer}>{content}</Marked>;
+  return <Marked renderer={renderer} gfm={true} value={content}></Marked>;
 }
