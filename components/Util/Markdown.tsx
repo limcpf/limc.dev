@@ -1,6 +1,5 @@
 "use client";
 import './Markdown.css';
-import "github-markdown-css/github-markdown-light.css";
 import Marked from "marked-react";
 import Image from "next/image";
 
