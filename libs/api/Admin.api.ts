@@ -5,6 +5,7 @@ import Page from "../class/Page.class";
 import Post from "../class/Post.class";
 import { METHOD, METHODS } from "./Constant.api";
 import PostDto from "@/libs/dto/admin/PostDto";
+import Series from "@/libs/class/Series.class";
 
 async function adminFetch(url: string, method: METHOD, body?: any) {
   let header: Headers = new Headers();
@@ -41,6 +42,19 @@ export async function getPostPageInAdmin(page: string) {
   if (response.ok) return json as Page<Post>;
   else {
     if (json.status === 404) return Page.getEmptyPage() as Page<Post>;
+    else throw new Error(json.error || "알 수 없는 오류입니다.");
+  }
+}
+
+export async function getSeriesPageInAdmin(page: string) {
+  // const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/image/site/DEV?page=${page || "1"}`;
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/series?page=${page || "1"}`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Page<Series>;
+  else {
+    if (json.status === 404) return Page.getEmptyPage() as Page<Series>;
     else throw new Error(json.error || "알 수 없는 오류입니다.");
   }
 }
