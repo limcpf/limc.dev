@@ -5,7 +5,8 @@ import Post from "@/libs/class/Post.class";
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
 import AdminPostCard from "@/components/Admin/AdminPost/AdminPostCard/AdminPostCard";
-import PostPageBar from "@/components/Post/PostPageBar";
+import PageBar from "@/components/Post/PageBar";
+import AddBtn from "@/components/Admin/addBtn";
 
 export default function AdminPostList({ posts }: {
     posts: Page<Post>
@@ -15,19 +16,6 @@ export default function AdminPostList({ posts }: {
 
     return (
         <main className="w-full flex flex-col p-2">
-            <div className="flex w-full justify-end pb-2">
-                <div
-                    className="
-                    transition cursor-pointer
-                    bg-gray-300 text-gray-600
-                    hover:bg-gray-400 hover:text-gray-700
-                    px-5 py-1.5
-                  "
-                    onClick={() => router.push("/admin/post")}
-                >
-                    작성
-                </div>
-            </div>
             {content.length > 0 ? (
                 content.map((post) => (
                     <AdminPostCard key={`post-${post.id}`} post={post} />
@@ -37,7 +25,7 @@ export default function AdminPostList({ posts }: {
                     게시글이 없습니다.
                 </div>
             )}
-            {posts && <PostPageBar postPage={posts} />}
+            {posts && <PageBar<Post> tPage={posts} />}
         </main>
     )
 }

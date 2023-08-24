@@ -1,7 +1,7 @@
 import PostCard from "@/components/Post/Card/PostCard";
 import { getPostPage } from "@/libs/api/Post.api";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import PostPageBar from "@/components/Post/PostPageBar";
+import PageBar from "@/components/Post/PageBar";
 
 export default async function Home({
   searchParams,
@@ -21,7 +21,7 @@ export default async function Home({
           게시글이 없습니다.
         </div>
       )}
-      {content.length > 0 ? <PostPageBar postPage={postPage} /> : <></>}
+      {content.length > 0 ? <PageBar tPage={postPage} /> : <></>}
     </main>
   );
 }

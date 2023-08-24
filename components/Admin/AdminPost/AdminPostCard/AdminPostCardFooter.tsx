@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { deletePost, togglePublished } from "@/libs/api/Admin.api";
 import { useState } from "react";
 
-export default function AdminPostCardFooter({
+export default function ksmsdminPostCardFooter({
   id,
   title,
   isPublished,
@@ -30,7 +30,7 @@ export default function AdminPostCardFooter({
     if (!confirm(`'${title}'을(를) 삭제 하시겠습니까??`)) return;
     deletePost(id).then(() => {
       alert(`해당 게시글을 삭제 하였습니다!`);
-      router.refresh();
+      location.reload();
     });
   };
   return (

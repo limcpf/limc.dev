@@ -1,7 +1,7 @@
 export default class Series {
     id: string;
     site: string;
-    topic: number;
+    topic: string;
     topicName: string;
     title: string;
     createdAt: string;
@@ -10,7 +10,7 @@ export default class Series {
     constructor(
         id: string,
         site: string,
-        topic: number,
+        topic: string,
         topicName: string,
         title: string,
         createdAt: string,

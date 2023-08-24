@@ -1,5 +1,10 @@
 import Series from "@/libs/class/Series.class";
 import Page from "@/libs/class/Page.class";
+import AdminSeriesCard from "@/components/Admin/AdminSeries/AdminSeriesCard";
+import AdminSeriesCardFooter from "@/components/Admin/AdminSeries/AdminSeriesCardFooter";
+import PageBar from "@/components/Post/PageBar";
+import React from "react";
+import AddBtn from "@/components/Admin/addBtn";
 
 export default function AdminSeriesList({series}:{series: Page<Series>}) {
     const content = series.content;
@@ -19,19 +24,14 @@ export default function AdminSeriesList({series}:{series: Page<Series>}) {
 
         {
             content.length > 0
-                ? content.map(({topicName, title, createdAt, updatedAt}) => {
-                   return <div className={gridCommon + " grid-cols-1 grid-rows-3 sm:grid-cols-4 sm:grid-rows-2 gap-x-1 py-3 sm:py-2 border-b  sm:mt-1"}>
-                       <div className={topic}>{topicName}</div>
-                       <div className={gridCommon + " grid-rows-2 col-span-full row-span-2 sm:col-span-3 sm:row-span-full pt-2 sm:pt-0 sm:py-2 hover:bg-gray-200"}>
-                           <div className="col-span-full text-center">{title}</div>
-                           <div className={"flex justify-center items-center sm:justify-end sm:items-end col-span-full row-start-2 row-end-3" + smallText}>
-                               만든 날짜 : {new Date(createdAt).toLocaleDateString()},
-                               마지막 수정한 날짜 : {new Date(updatedAt).toLocaleDateString()}
-                           </div>
-                       </div>
-                   </div>
+                ? content.map((series) => {
+                   return (<div className="border-b-gray-300 border-b">
+                       <AdminSeriesCard series={series}/>
+                       <AdminSeriesCardFooter title={series.title} id={series.id} />
+                   </div>);
                 })
                 : <div>등록된 시리즈가 없습니다.</div>
         }
+        {series && <PageBar<Series> tPage={series} />}
     </main>)
 }

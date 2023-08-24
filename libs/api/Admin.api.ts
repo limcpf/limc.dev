@@ -6,6 +6,7 @@ import Post from "../class/Post.class";
 import { METHOD, METHODS } from "./Constant.api";
 import PostDto from "@/libs/dto/admin/PostDto";
 import Series from "@/libs/class/Series.class";
+import SeriesDto from "@/libs/dto/admin/SeriesDto";
 
 async function adminFetch(url: string, method: METHOD, body?: any) {
   let header: Headers = new Headers();
@@ -68,6 +69,24 @@ export async function getPostInAdmin(id: string) {
   else throw new Error(json.error || "알 수 없는 오류입니다.");
 }
 
+export async function getSeriesInAdmin(id: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/series/${id}`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Series;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+
+export async function getPostBySeriesInAdmin(id: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/post/series/${id}`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Page<Post>;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+
 export async function logout() {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/logout`;
   const response = await adminFetch(url, METHODS.GET);
@@ -86,6 +105,18 @@ export async function togglePublished(id: string) {
 
 export async function deletePost(id: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/post/${id}`;
+  const response = await adminFetch(url, METHODS.DELETE);
+
+  if (response.ok) {
+    return true;
+  } else {
+    const json = await response.json();
+    throw new Error(json.error || "알 수 없는 오류입니다.");
+  }
+}
+
+export async function deleteSeries(id: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/series/${id}`;
   const response = await adminFetch(url, METHODS.DELETE);
 
   if (response.ok) {
@@ -130,11 +161,30 @@ export async function addPost(postDto: PostDto) {
   if (response.ok) return json as Post;
   else throw new Error(json.error || "알 수 없는 오류입니다.");
 }
+
+export async function addSeries(seriesDto: SeriesDto) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/series`;
+  const response = await adminFetch(url, METHODS.POST, seriesDto);
+  const json = await response.json();
+
+  if (response.ok) return json as Series;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+
 export async function updatePost(postDto: PostDto) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/post`;
   const response = await adminFetch(url, METHODS.PATCH, postDto);
   const json = await response.json();
 
   if (response.ok) return json as Post;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+
+export async function updateSeries(seriesDto: SeriesDto) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/series`;
+  const response = await adminFetch(url, METHODS.PATCH, seriesDto);
+  const json = await response.json();
+
+  if (response.ok) return json as Series;
   else throw new Error(json.error || "알 수 없는 오류입니다.");
 }

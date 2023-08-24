@@ -2,7 +2,7 @@
 
 import { getPostInAdmin } from "@/libs/api/Admin.api";
 import PostAddOrUpdate from "@/app/admin/post/PostAddOrUpdate";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Post from "@/libs/class/Post.class";
 
 export default function postUpdatePage({
@@ -12,9 +12,12 @@ export default function postUpdatePage({
 }) {
   const [post, setPost] = useState<Post>();
   const { id } = params;
-  getPostInAdmin(id).then((post) => {
-    setPost(post);
-  });
+
+  useEffect(() => {
+    getPostInAdmin(id).then((post) => {
+      setPost(post);
+    });
+  }, [])
 
   return <>{post ? <PostAddOrUpdate post={post} /> : <></>}</>;
 }
