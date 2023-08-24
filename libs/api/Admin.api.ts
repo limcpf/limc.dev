@@ -49,7 +49,9 @@ export async function getPostPageInAdmin(page: string) {
 
 export async function getSeriesPageInAdmin(page: string) {
   // const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/image/site/DEV?page=${page || "1"}`;
-  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/series?page=${page || "1"}`;
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/series?page=${
+    page || "1"
+  }`;
   const response = await adminFetch(url, METHODS.GET);
   const json = await response.json();
 

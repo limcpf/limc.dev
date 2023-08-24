@@ -18,12 +18,10 @@ export default function adminMain({ searchParams }: { searchParams: Params }) {
     });
   }, [page]);
 
-  return (<>
-    <AddBtn href={"/admin/post"} text={"작성"} />
-        {
-          postPage
-            ? (<AdminPostList posts={postPage} />)
-            : (<></>)
-        }
-    </>)
+  return (
+    <>
+      <AddBtn href={"/admin/post"} text={"작성"} />
+      {postPage ? <AdminPostList posts={postPage} /> : <></>}
+    </>
+  );
 }

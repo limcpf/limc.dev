@@ -13,7 +13,7 @@ import {
 } from "@/libs/api/Admin.api";
 import PostDto from "@/libs/dto/admin/PostDto";
 import { useRouter } from "next/navigation";
-import {inputStyle} from "@/components/Admin/AdminConstantClassNames";
+import { inputStyle } from "@/components/Admin/AdminConstantClassNames";
 
 export default function PostAddOrUpdate({
   post,
@@ -24,18 +24,12 @@ export default function PostAddOrUpdate({
 
   const isUpdate = !!post;
 
-  const [site, setSite]
-      = useState(post ? post.site : "");
-  const [topic, setTopic]
-      = useState(post ? post.topic : "");
-  const [series, setSeries]
-      = useState(post ? post.series : "");
-  const titleRef
-      = useRef<HTMLInputElement>(null);
-  const summaryRef
-      = useRef<HTMLTextAreaElement>(null);
-  const contentRef
-      = useRef<HTMLTextAreaElement>(null);
+  const [site, setSite] = useState(post ? post.site : "");
+  const [topic, setTopic] = useState(post ? post.topic : "");
+  const [series, setSeries] = useState(post ? post.series : "");
+  const titleRef = useRef<HTMLInputElement>(null);
+  const summaryRef = useRef<HTMLTextAreaElement>(null);
+  const contentRef = useRef<HTMLTextAreaElement>(null);
 
   const clearWritingPost = () => {
     localStorage.removeItem("limcDevHasWriting");

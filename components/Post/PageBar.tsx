@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import Page from "@/libs/class/Page.class";
-import Post from "@/libs/class/Post.class";
 
 export default function PageBar<T>({
   tPage,

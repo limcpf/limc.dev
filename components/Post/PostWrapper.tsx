@@ -8,8 +8,7 @@ export default function PostWrapper({
 }: {
   post: Post;
 }) {
-
-    return (
+  return (
     <article className="markdown-body post-wrapper w-full flex flex-col">
       <div className="flex flex-col">
         <PostTitle title={post.title} />

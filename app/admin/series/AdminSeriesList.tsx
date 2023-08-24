@@ -4,34 +4,31 @@ import AdminSeriesCard from "@/components/Admin/AdminSeries/AdminSeriesCard";
 import AdminSeriesCardFooter from "@/components/Admin/AdminSeries/AdminSeriesCardFooter";
 import PageBar from "@/components/Post/PageBar";
 import React from "react";
-import AddBtn from "@/components/Admin/addBtn";
 
-export default function AdminSeriesList({series}:{series: Page<Series>}) {
-    const content = series.content;
+export default function AdminSeriesList({ series }: { series: Page<Series> }) {
+  const content = series.content;
 
-    const gridCommon
-        = " grid sm:row-span-full cursor-pointer text-center hover:bg-gray-200 cursor-pointer";
-    const title
-        = " text-center font-light";
-    const topic
-        = " col-span-full row-span-1 sm:col-span-1 sm:row-span-full flex flex-row justify-center items-center text-xl font-bold ";
-    const smallText = " text-gray-400 text-xs font-light";
-    return (<main className="w-full flex flex-col p-3">
-        <div className="hidden sm:grid sm:grid-cols-4 sm:border-b sm:border-b-gray-300 sm:pb-3">
-            <div className={title}>주제</div>
-            <div className={title + " col-span-3"}>제목</div>
-        </div>
+  const title = " text-center font-light";
+  return (
+    <main className="w-full flex flex-col p-3">
+      <div className="hidden sm:grid sm:grid-cols-4 sm:border-b sm:border-b-gray-300 sm:pb-3">
+        <div className={title}>주제</div>
+        <div className={title + " col-span-3"}>제목</div>
+      </div>
 
-        {
-            content.length > 0
-                ? content.map((series) => {
-                   return (<div className="border-b-gray-300 border-b">
-                       <AdminSeriesCard series={series}/>
-                       <AdminSeriesCardFooter title={series.title} id={series.id} />
-                   </div>);
-                })
-                : <div>등록된 시리즈가 없습니다.</div>
-        }
-        {series && <PageBar<Series> tPage={series} />}
-    </main>)
+      {content.length > 0 ? (
+        content.map((series) => {
+          return (
+            <div className="border-b-gray-300 border-b">
+              <AdminSeriesCard series={series} />
+              <AdminSeriesCardFooter title={series.title} id={series.id} />
+            </div>
+          );
+        })
+      ) : (
+        <div>등록된 시리즈가 없습니다.</div>
+      )}
+      {series && <PageBar<Series> tPage={series} />}
+    </main>
+  );
 }
