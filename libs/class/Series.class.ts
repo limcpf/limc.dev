@@ -4,6 +4,7 @@ export default class Series {
   topic: string;
   topicName: string;
   title: string;
+  postCnt: number;
   createdAt: string;
   updatedAt: string;
 
@@ -13,6 +14,7 @@ export default class Series {
     topic: string,
     topicName: string,
     title: string,
+    postCnt: number,
     createdAt: string,
     updatedAt: string,
   ) {
@@ -21,6 +23,7 @@ export default class Series {
     this.topic = topic;
     this.topicName = topicName;
     this.title = title;
+    this.postCnt = postCnt;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
