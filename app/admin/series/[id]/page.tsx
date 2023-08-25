@@ -7,7 +7,7 @@ import Post from "@/libs/class/Post.class";
 import Page from "@/libs/class/Page.class";
 import AdminPostList from "@/app/admin/post/AdminPostList";
 
-export default function AdminPostInSeries({
+export default function AdminSeriesDetail({
   params,
 }: { params: { id: string } }) {
   const [series, setSeries] = useState<Series>();
