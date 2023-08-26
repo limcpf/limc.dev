@@ -10,7 +10,6 @@ export default async function Home({
   searchParams: Params;
 }) {
   const page = searchParams.page;
-  const postPage = await getPostPage(page);
 
   return (
     <main className="w-full flex flex-col p-2">
