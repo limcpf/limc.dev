@@ -1,26 +1,20 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Series from "@/libs/class/Series.class";
 import {getPostBySeriesInAdmin, getSeriesInAdmin} from "@/libs/api/Admin.api";
-import Post from "@/libs/class/Post.class";
-import Page from "@/libs/class/Page.class";
-import AdminPostList from "@/app/admin/post/AdminPostList";
+import PostList from "@/components/Post/PostList";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 
-export default function AdminSeriesDetail({
-  params,
-}: { params: { id: string } }) {
+export default function AdminSeriesDetail({params, searchParams}: {params: {id:string},  searchParams: Params }) {
   const [series, setSeries] = useState<Series>();
-  const [posts, setPosts] = useState<Page<Post>>();
 
   const { id } = params;
+  const page = searchParams.page;
 
   useEffect(() => {
     getSeriesInAdmin(id).then((series) => {
       setSeries(series);
-    });
-    getPostBySeriesInAdmin(id).then((p) => {
-      setPosts(p);
     });
   }, []);
 
@@ -46,10 +40,10 @@ export default function AdminSeriesDetail({
           </div>
         </div>
       )}
-      {posts && (
-          <>
-            <AdminPostList posts={posts} />
-          </>
+      {series && (
+          <main className="w-full flex flex-col p-2">
+            <PostList getFunc={getPostBySeriesInAdmin} page={page} id={id} isAdmin={true}/>
+          </main>
       )}
     </div>
   );

@@ -1,13 +1,13 @@
 'use client';
 
-import AdminPostList from "@/app/admin/post/AdminPostList";
 import {useEffect, useState} from "react";
 import Page from "@/libs/class/Page.class";
-import Post from "@/libs/class/Post.class";
 import {getPostByTopicInAdmin, getSeriesByTopicInAdmin, getTopicInAdmin} from "@/libs/api/Admin.api";
 import Topic from "@/libs/class/Topic.class";
 import Series from "@/libs/class/Series.class";
 import AdminSeriesList from "@/app/admin/series/AdminSeriesList";
+import PostList from "@/components/Post/PostList";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 
 /**
  * TODO 1: 페이지 기능...작동안함 전체 고치기
@@ -17,17 +17,16 @@ import AdminSeriesList from "@/app/admin/series/AdminSeriesList";
  * TODO 4: 전체적으로 추상화하기, 글로 써보자 << 이거 블로그 제작기에 한번 올려볼까?
  * TODO 5: tab-page 추상화하기
  */
-export default function AdminTopicDetail({params}: {params: {id:string}}) {
+export default function AdminTopicDetail({params, searchParams}: {params: {id:string},  searchParams: Params }) {
     const [topic, setTopic]
         = useState<Topic>();
     const [series, setSeries]
         = useState<Page<Series>>();
-    const [posts, setPosts]
-        = useState<Page<Post>>();
     const [mode, setMode]
         = useState<'post' | 'series'>('series');
 
     const { id } = params;
+    const page = searchParams.page;
 
     useEffect(() => {
         getTopicInAdmin(id).then((topic) => {
@@ -35,9 +34,6 @@ export default function AdminTopicDetail({params}: {params: {id:string}}) {
         });
         getSeriesByTopicInAdmin(id).then((s) => {
             setSeries(s);
-        });
-        getPostByTopicInAdmin(id).then((p) => {
-            setPosts(p);
         });
     }, []);
 
@@ -89,10 +85,10 @@ export default function AdminTopicDetail({params}: {params: {id:string}}) {
                     게시글
                 </div>
             </div>
-            {(posts && mode === 'post') && (
-                <>
-                    <AdminPostList posts={posts} />
-                </>
+            {(topic && mode === 'post') && (
+                <main className="w-full flex flex-col p-2">
+                    <PostList getFunc={getPostByTopicInAdmin} page={page} id={id} isAdmin={true}/>
+                </main>
             )}
             {(series && mode === 'series') && (
                 <>

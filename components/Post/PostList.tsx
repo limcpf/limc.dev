@@ -7,21 +7,25 @@ import Loading from "@/components/Util/Loading";
 import PostListItem from "@/components/Post/Card/PostListItem";
 import PageBar from "@/components/Post/PageBar";
 
+type getPostList = (page?:string) => Promise<Page<Post>>;
+type getPostByIdList = (id:string, page?:string) => Promise<Page<Post>>
+
 export default function PostList({
-    getFunc, page, isAdmin
+    getFunc, page, isAdmin, id
 }: {
-    getFunc: (page?:string) => Promise<Page<Post>>,
+    getFunc: getPostList | getPostByIdList,
+    id?:string,
     page?:string,
     isAdmin?:boolean
 }) {
     const [curPagePost, setCurPagePost]
         = useState<Page<Post>>();
 
+    const callbackPagePost = (pagePost: Page<Post>) => setCurPagePost(pagePost);
+
     useEffect(() => {
-        getFunc(page)
-            .then((pagePost) => {
-                setCurPagePost(pagePost);
-            });
+        if(id) getFunc(id, page || "1").then(callbackPagePost);
+        else getFunc(page || "1").then(callbackPagePost);
     }, [page]);
 
     return (
