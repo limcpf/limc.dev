@@ -1,10 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { deletePost, togglePublished } from "@/libs/api/Admin.api";
-import { useState } from "react";
+import {useRouter} from "next/navigation";
+import {deletePost, togglePublished} from "@/libs/api/Admin.api";
+import {useState} from "react";
 
-export default function ksmsdminPostCardFooter({
+export default function PostListItemFooter({
   id,
   title,
   isPublished,
@@ -12,7 +12,7 @@ export default function ksmsdminPostCardFooter({
   const router = useRouter();
   const [isPub, setIsPub] = useState<boolean>(isPublished);
   const className =
-    "cursor-pointer transition hover:bg-gray-50 col-span-1 p-2 text-center";
+    "cursor-pointer transition hover:bg-gray-50 col-span-1 py-2 text-center";
   const getPubWord = () => (isPub ? "발행 취소" : "발행");
   const pubBtnOnClick = () => {
     if (!confirm(`'${title}'을(를) ${getPubWord()}하시겠습니까??`)) return;
@@ -34,7 +34,7 @@ export default function ksmsdminPostCardFooter({
     });
   };
   return (
-    <div className="w-full grid grid-cols-3">
+    <div className="w-full grid grid-cols-3 border-b">
       <div className={className} onClick={pubBtnOnClick}>
         {isPub ? "발행 취소" : "발행"}
       </div>

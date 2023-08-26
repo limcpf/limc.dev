@@ -1,6 +1,6 @@
 import PostCard from "@/components/Post/Card/PostCard";
 import Post from "@/libs/class/Post.class";
-import AdminPostCardFooter from "@/components/Admin/AdminPost/AdminPostCard/AdminPostCardFooter";
+import AdminPostCardFooter from "@/components/Post/Card/PostListItemFooter";
 
 export default function AdminPostCard({ post }: { post: Post }) {
   return (

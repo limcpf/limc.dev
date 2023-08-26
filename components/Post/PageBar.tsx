@@ -1,12 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 import Page from "@/libs/class/Page.class";
 
 export default function PageBar<T>({
   tPage,
 }: {
   tPage: Page<T>;
+  setPage?: (page:string) => void;
 }) {
   const router = useRouter();
   const curPage = tPage.pageable.pageNumber;

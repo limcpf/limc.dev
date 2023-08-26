@@ -36,8 +36,7 @@ export async function login(adminDto: AdminDto) {
   else throw new Error(json.error || "알 수 없는 오류입니다.");
 }
 
-export async function getPostPageInAdmin(page: string) {
-  // const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/image/site/DEV?page=${page || "1"}`;
+export async function getPostPageInAdmin(page?: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/post?page=${page || "1"}`;
   const response = await adminFetch(url, METHODS.GET);
   const json = await response.json();

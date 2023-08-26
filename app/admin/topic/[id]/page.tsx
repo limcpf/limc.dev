@@ -15,6 +15,7 @@ import AdminSeriesList from "@/app/admin/series/AdminSeriesList";
  * TODO 2-1: 페이지 유지는 어떻게 할지 고민 해보자, 초기화 할지 말지
  * TODO 3: 주제에서 시리즈 목록 볼때 주제 명이 안가져와짐 이거 모임;
  * TODO 4: 전체적으로 추상화하기, 글로 써보자 << 이거 블로그 제작기에 한번 올려볼까?
+ * TODO 5: tab-page 추상화하기
  */
 export default function AdminTopicDetail({params}: {params: {id:string}}) {
     const [topic, setTopic]
