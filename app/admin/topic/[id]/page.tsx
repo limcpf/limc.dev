@@ -8,22 +8,33 @@ import Series from "@/libs/class/Series.class";
 import AdminSeriesList from "@/app/admin/series/AdminSeriesList";
 import PostList from "@/components/Post/PostList";
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import AdminTab from "@/components/Admin/AdminTab/AdminTab";
+import TopicHeader from "@/app/admin/topic/[id]/TopicHeader";
+import Loading from "@/components/Util/Loading";
 
 /**
- * TODO 1: 페이지 기능...작동안함 전체 고치기
- * TODO 2: 각각 리스트 컴포넌트에서 get 해서 데이터 가져와보자 그래야 탭같은거 구현 쉬울듯?
- * TODO 2-1: 페이지 유지는 어떻게 할지 고민 해보자, 초기화 할지 말지
- * TODO 3: 주제에서 시리즈 목록 볼때 주제 명이 안가져와짐 이거 모임;
+ * TODO 6: 관리자에서 public 으로 포스트 가져오는 애들 발행 안된애들도 가져오는지 체크해야할듯...? 분리해야지 따로 써야하니깐
+ * TODO 2: 각각 리스트 컴포넌트에서 get 해서 데이터 가져와보자 그래야 탭같은거 구현 쉬울듯? << Post 까지만 해놓음
  * TODO 4: 전체적으로 추상화하기, 글로 써보자 << 이거 블로그 제작기에 한번 올려볼까?
- * TODO 5: tab-page 추상화하기
  */
+
+const buttons = [
+    {
+        text: "시리즈",
+        mode: "series"
+    },
+    {
+       text: "게시글",
+       mode: "post"
+    }
+]
 export default function AdminTopicDetail({params, searchParams}: {params: {id:string},  searchParams: Params }) {
     const [topic, setTopic]
         = useState<Topic>();
     const [series, setSeries]
         = useState<Page<Series>>();
     const [mode, setMode]
-        = useState<'post' | 'series'>('series');
+        = useState<string>('series');
 
     const { id } = params;
     const page = searchParams.page;
@@ -39,57 +50,19 @@ export default function AdminTopicDetail({params, searchParams}: {params: {id:st
 
     return (
         <div className="w-full flex flex-col">
-            {topic && (
-                <div className="text-center py-3 border-b">
-                    <h3 className="text-xl">{topic.site}</h3>
-                    <h1 className="font-bold text-3xl">{topic.name}</h1>
-                    <div className="grid grid-rows-2 grid-cols-2 px-3">
-                        <div className="col-span-1 row-span-1 text-left">
-                            <span className="text-sm font-extralight text-gray-500">해당 토픽 시리즈 총 개수 : </span>
-                            <span className={"text-sm font-extralight"}>{topic.seriesCnt}개</span>
-                        </div>
-                        <div className="col-span-1 row-span-1 text-right">
-                            <span className="text-sm font-extralight text-gray-500">생성일자 : </span>
-                            <span className={"text-sm font-extralight"}>{new Date(topic.createdAt).toLocaleDateString()}</span>
-                        </div>
-                        <div className="col-span-1 row-span-1 text-left">
-                            <span className="text-sm font-extralight text-gray-500">해당 토픽 게시글 총 개수 : </span>
-                            <span className={"text-sm font-extralight"}>{topic.postCnt}개</span>
-                        </div>
-                        <div className="col-span-1 row-span-1 text-right">
-                            <span className="text-sm font-extralight text-gray-500">수정일자 : </span>
-                            <span className={"text-sm font-extralight"}>{new Date(topic.updatedAt).toLocaleDateString()}</span>
-                        </div>
-                    </div>
-                </div>
-            )}
-            <div className="w-full border-b overflow-x-auto whitespace-nowrap mt-2 flex">
-                <div
-                    className={
-                        mode === 'series'
-                            ? "w-20 bg-gray-200 px-4 py-2 text-center text-sm cursor-pointer"
-                            : "w-20 bg-white border-r border-t px-4 py-2 text-center text-sm cursor-pointer"
-                    }
-                    onClick={() => setMode('series')}
-                >
-                    시리즈
-                </div>
-                <div
-                    className={
-                        mode === 'post'
-                            ? "w-20 bg-gray-200 px-4 py-2 text-center text-sm cursor-pointer"
-                            : "w-20 bg-white border-r border-t px-4 py-2 text-center text-sm cursor-pointer"
-                    }
-                    onClick={() => setMode('post')}
-                >
-                    게시글
-                </div>
-            </div>
+            {topic
+                ? <TopicHeader topic={topic} />
+                : <Loading />
+            }
+
+            <AdminTab buttons={buttons} curMode={mode} setMode={setMode} />
+
             {(topic && mode === 'post') && (
                 <main className="w-full flex flex-col p-2">
                     <PostList getFunc={getPostByTopicInAdmin} page={page} id={id} isAdmin={true}/>
                 </main>
             )}
+
             {(series && mode === 'series') && (
                 <>
                     <AdminSeriesList series={series} />
