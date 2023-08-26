@@ -2,13 +2,12 @@
 
 import {getPostPageInAdmin} from "@/libs/api/Admin.api";
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
-import React, {useState} from "react";
+import React from "react";
 import AddBtn from "@/components/Admin/addBtn";
 import PostList from "@/components/Post/PostList";
 
 export default function adminMain({ searchParams }: { searchParams: Params }) {
-  const [page, setPage]
-      = useState<string>(searchParams.page);
+  const page = searchParams.page;
 
   return (
       <main className="w-full flex flex-col p-2">
