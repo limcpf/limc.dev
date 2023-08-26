@@ -1,7 +1,7 @@
 import Post from "@/libs/class/Post.class";
 import Page from "@/libs/class/Page.class";
-import {NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/Api.constant";
-import {METHODS} from "@/libs/api/Constant.api";
+import { NEXT_PUBLIC_SERVER_URL } from "@/libs/constant/Api.constant";
+import { METHODS } from "@/libs/api/Constant.api";
 
 // export async function getPostPage(page?: string) {
 //   const t = await fetch(
@@ -18,8 +18,10 @@ import {METHODS} from "@/libs/api/Constant.api";
 //   }
 // }
 export async function getPostPage(page?: string) {
-  const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/post/site/DEV?page=${page || "1"}`;
-  const response = await fetch(url, { method : METHODS.GET});
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/post/site/DEV?page=${
+    page || "1"
+  }`;
+  const response = await fetch(url, { method: METHODS.GET });
   const json = await response.json();
 
   if (response.ok) return json as Page<Post>;
