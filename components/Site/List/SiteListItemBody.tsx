@@ -1,11 +1,14 @@
 "use client";
 
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import Site from "@/libs/class/Site.class";
 
-export default function SiteListItemBody({ site, isAdmin }: { site: Site, isAdmin?:boolean }) {
+export default function SiteListItemBody({
+  site,
+  isAdmin,
+}: { site: Site; isAdmin?: boolean }) {
   const router = useRouter();
-  const { name} = site;
+  const { name } = site;
 
   const gridCommon =
     " grid sm:row-span-full cursor-pointer text-center hover:bg-gray-50 cursor-pointer";

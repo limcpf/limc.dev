@@ -1,12 +1,12 @@
 "use client";
 
 import Topic from "@/libs/class/Topic.class";
-import {useRouter} from "next/navigation";
-import {FormEventHandler, useEffect, useRef, useState} from "react";
-import {addTopic, getSiteList, updateTopic} from "@/libs/api/Admin.api";
+import { useRouter } from "next/navigation";
+import { FormEventHandler, useEffect, useRef, useState } from "react";
+import { addTopic, getSiteList, updateTopic } from "@/libs/api/Admin.api";
 import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
 import AdminSelect from "@/components/Admin/Input/AdminSelect";
-import {inputStyle} from "@/components/Admin/AdminConstantClassNames";
+import { inputStyle } from "@/components/Admin/AdminConstantClassNames";
 import TopicDto from "@/libs/dto/admin/TopicDto";
 
 export default function TopicAddOrUpdate({

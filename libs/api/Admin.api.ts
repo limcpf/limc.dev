@@ -1,9 +1,9 @@
-import {AdminDto} from "@/libs/dto/admin/AdminDto";
+import { AdminDto } from "@/libs/dto/admin/AdminDto";
 import LoginDto from "@/libs/dto/admin/LoginDto";
-import {NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/Api.constant";
+import { NEXT_PUBLIC_SERVER_URL } from "@/libs/constant/Api.constant";
 import Page from "../class/Page.class";
 import Post from "../class/Post.class";
-import {METHOD, METHODS} from "./Constant.api";
+import { METHOD, METHODS } from "./Constant.api";
 import PostDto from "@/libs/dto/admin/PostDto";
 import Series from "@/libs/class/Series.class";
 import SeriesDto from "@/libs/dto/admin/SeriesDto";
@@ -160,7 +160,7 @@ export async function getPostByTopicInAdmin(id: string, page?: string) {
 
 export async function getTopicBySiteInAdmin(name: string, page?: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/topic/site/${name}?page=${
-      page || "1"
+    page || "1"
   }`;
   const response = await adminFetch(url, METHODS.GET);
   const json = await response.json();
@@ -170,7 +170,7 @@ export async function getTopicBySiteInAdmin(name: string, page?: string) {
 }
 export async function getSeriesBySiteInAdmin(id: string, page?: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/series/site/${id}?page=${
-      page || "1"
+    page || "1"
   }`;
   const response = await adminFetch(url, METHODS.GET);
   const json = await response.json();
@@ -180,7 +180,7 @@ export async function getSeriesBySiteInAdmin(id: string, page?: string) {
 }
 export async function getPostBySiteInAdmin(id: string, page?: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/post/site/${id}?page=${
-      page || "1"
+    page || "1"
   }`;
   const response = await adminFetch(url, METHODS.GET);
   const json = await response.json();

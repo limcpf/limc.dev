@@ -1,6 +1,6 @@
 "use client";
-import {useRouter} from "next/navigation";
-import {deleteTopic} from "@/libs/api/Admin.api";
+import { useRouter } from "next/navigation";
+import { deleteTopic } from "@/libs/api/Admin.api";
 
 export default function TopicListItemFooter({
   id,

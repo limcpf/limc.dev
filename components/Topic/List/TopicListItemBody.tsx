@@ -1,11 +1,14 @@
 "use client";
 
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import Topic from "@/libs/class/Topic.class";
 
-export default function TopicListItemBody({ topic, isAdmin }: { topic: Topic, isAdmin?:boolean }) {
+export default function TopicListItemBody({
+  topic,
+  isAdmin,
+}: { topic: Topic; isAdmin?: boolean }) {
   const router = useRouter();
-  const { id, site, name} = topic;
+  const { id, site, name } = topic;
 
   const gridCommon =
     " grid sm:row-span-full cursor-pointer text-center hover:bg-gray-50 cursor-pointer";

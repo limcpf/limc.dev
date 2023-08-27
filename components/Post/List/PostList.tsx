@@ -1,12 +1,12 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Page from "@/libs/class/Page.class";
 import Post from "@/libs/class/Post.class";
 import Loading from "@/components/Util/Loading";
 import PostListItem from "@/components/Post/List/PostListItem";
 import PageBar from "@/components/Post/PageBar";
-import {getListFunc} from "@/libs/api/api";
+import { getListFunc } from "@/libs/api/api";
 import AddBtn from "@/components/Admin/addBtn";
 
 export default function PostList({
@@ -31,7 +31,7 @@ export default function PostList({
 
   return (
     <div className="w-full flex flex-col">
-      {isAdmin && (<AddBtn href="/admin/post" text={"작성"} />)}
+      {isAdmin && <AddBtn href="/admin/post" text={"작성"} />}
       {curPagePost ? (
         curPagePost.content.length > 0 ? (
           curPagePost.content.map((post) => {

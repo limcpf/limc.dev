@@ -1,13 +1,18 @@
 "use client";
 
 import Series from "@/libs/class/Series.class";
-import {useRouter} from "next/navigation";
-import {FormEventHandler, useEffect, useRef, useState} from "react";
+import { useRouter } from "next/navigation";
+import { FormEventHandler, useEffect, useRef, useState } from "react";
 import SeriesDto from "@/libs/dto/admin/SeriesDto";
-import {addSeries, getSiteList, getTopicList, updateSeries,} from "@/libs/api/Admin.api";
+import {
+  addSeries,
+  getSiteList,
+  getTopicList,
+  updateSeries,
+} from "@/libs/api/Admin.api";
 import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
 import AdminSelect from "@/components/Admin/Input/AdminSelect";
-import {inputStyle} from "@/components/Admin/AdminConstantClassNames";
+import { inputStyle } from "@/components/Admin/AdminConstantClassNames";
 
 export default function SeriesAddOrUpdate({
   series,

@@ -1,6 +1,6 @@
 "use client";
 
-import {Dispatch, SetStateAction} from "react";
+import { Dispatch, SetStateAction } from "react";
 import AdminTabBtn from "@/components/Admin/Tab/AdminTabBtn";
 
 export default function AdminTab({

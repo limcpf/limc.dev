@@ -1,14 +1,11 @@
 "use client";
-import {useRouter} from "next/navigation";
-import {deleteSite} from "@/libs/api/Admin.api";
+import { deleteSite } from "@/libs/api/Admin.api";
 
 export default function SiteListItemFooter({
   name,
 }: {
   name: string;
 }) {
-  const router = useRouter();
-
   const className =
     "cursor-pointer transition hover:bg-gray-50 col-span-1 p-2 text-center";
   const delBtnOnClick = () => {

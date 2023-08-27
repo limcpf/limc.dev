@@ -1,14 +1,14 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
-    getPostBySiteInAdmin,
-    getSeriesBySiteInAdmin,
-    getSiteInAdmin,
-    getTopicBySiteInAdmin,
+  getPostBySiteInAdmin,
+  getSeriesBySiteInAdmin,
+  getSiteInAdmin,
+  getTopicBySiteInAdmin,
 } from "@/libs/api/Admin.api";
 import PostList from "@/components/Post/List/PostList";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/Tab/AdminTab";
 import Loading from "@/components/Util/Loading";
 import SeriesList from "@/components/Series/List/SeriesList";
@@ -17,57 +17,71 @@ import TopicList from "@/components/Topic/List/TopicList";
 import SiteHeader from "@/app/admin/site/[name]/SiteHeader";
 
 const buttons = [
-    {
-        text: "주제",
-        mode: "topic",
-    },
-    {
-        text: "시리즈",
-        mode: "series",
-    },
-    {
-        text: "게시글",
-        mode: "post",
-    },
+  {
+    text: "주제",
+    mode: "topic",
+  },
+  {
+    text: "시리즈",
+    mode: "series",
+  },
+  {
+    text: "게시글",
+    mode: "post",
+  },
 ];
 
 export default function AdminSiteDetail({
-    params,
-    searchParams,
+  params,
+  searchParams,
 }: {
-    params: { name: string };
-    searchParams: Params;
+  params: { name: string };
+  searchParams: Params;
 }) {
-    const [site, setSite] = useState<Site>();
-    const [mode, setMode] = useState<string>("topic");
+  const [site, setSite] = useState<Site>();
+  const [mode, setMode] = useState<string>("topic");
 
-    const { name } = params;
-    const page = searchParams.page;
+  const { name } = params;
+  const page = searchParams.page;
 
-    useEffect(() => {
-        getSiteInAdmin(name).then((site) => {
-            setSite(site);
-        });
-    }, []);
+  useEffect(() => {
+    getSiteInAdmin(name).then((site) => {
+      setSite(site);
+    });
+  }, []);
 
-    return (
-        <div className="w-full flex flex-col">
-            {site ? <SiteHeader site={site} /> : <Loading />}
+  return (
+    <div className="w-full flex flex-col">
+      {site ? <SiteHeader site={site} /> : <Loading />}
 
-            <AdminTab buttons={buttons} curMode={mode} setMode={setMode} />
+      <AdminTab buttons={buttons} curMode={mode} setMode={setMode} />
 
-            {site && mode === "topic" && <TopicList getFunc={getTopicBySiteInAdmin} isAdmin={true} page={page} id={name}/>}
-            {site && mode === "post" && (
-                <main className="w-full flex flex-col p-2">
-                    <PostList
-                        getFunc={getPostBySiteInAdmin}
-                        page={page}
-                        id={name}
-                        isAdmin={true}
-                    />
-                </main>
-            )}
-            {site && mode === "series" && <SeriesList getFunc={getSeriesBySiteInAdmin} isAdmin={true} page={page} id={name}/>}
-        </div>
-    );
+      {site && mode === "topic" && (
+        <TopicList
+          getFunc={getTopicBySiteInAdmin}
+          isAdmin={true}
+          page={page}
+          id={name}
+        />
+      )}
+      {site && mode === "post" && (
+        <main className="w-full flex flex-col p-2">
+          <PostList
+            getFunc={getPostBySiteInAdmin}
+            page={page}
+            id={name}
+            isAdmin={true}
+          />
+        </main>
+      )}
+      {site && mode === "series" && (
+        <SeriesList
+          getFunc={getSeriesBySiteInAdmin}
+          isAdmin={true}
+          page={page}
+          id={name}
+        />
+      )}
+    </div>
+  );
 }

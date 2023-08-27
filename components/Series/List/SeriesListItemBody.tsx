@@ -1,9 +1,12 @@
 "use client";
 
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import Series from "@/libs/class/Series.class";
 
-export default function SeriesListItemBody({ series, isAdmin }: { series: Series, isAdmin?:boolean }) {
+export default function SeriesListItemBody({
+  series,
+  isAdmin,
+}: { series: Series; isAdmin?: boolean }) {
   const router = useRouter();
   const { id, topicName, title } = series;
 

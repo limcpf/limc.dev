@@ -1,10 +1,14 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
-import {getPostByTopicInAdmin, getSeriesByTopicInAdmin, getTopicInAdmin,} from "@/libs/api/Admin.api";
+import React, { useEffect, useState } from "react";
+import {
+  getPostByTopicInAdmin,
+  getSeriesByTopicInAdmin,
+  getTopicInAdmin,
+} from "@/libs/api/Admin.api";
 import Topic from "@/libs/class/Topic.class";
 import PostList from "@/components/Post/List/PostList";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/Tab/AdminTab";
 import TopicHeader from "@/app/admin/topic/[id]/TopicHeader";
 import Loading from "@/components/Util/Loading";
@@ -60,7 +64,12 @@ export default function AdminTopicDetail({
       )}
       {topic && mode === "series" && (
         <>
-          <SeriesList getFunc={getSeriesByTopicInAdmin} isAdmin={true} page={page} id={id}/>
+          <SeriesList
+            getFunc={getSeriesByTopicInAdmin}
+            isAdmin={true}
+            page={page}
+            id={id}
+          />
         </>
       )}
     </div>

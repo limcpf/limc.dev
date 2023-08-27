@@ -1,7 +1,7 @@
 "use client";
 
-import {getPostPageInAdmin} from "@/libs/api/Admin.api";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { getPostPageInAdmin } from "@/libs/api/Admin.api";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import React from "react";
 import PostList from "@/components/Post/List/PostList";
 

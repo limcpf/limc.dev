@@ -1,13 +1,19 @@
 "use client";
 
 import Post from "@/libs/class/Post.class";
-import {FormEventHandler, useEffect, useRef, useState} from "react";
+import { FormEventHandler, useEffect, useRef, useState } from "react";
 import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
 import AdminSelect from "@/components/Admin/Input/AdminSelect";
-import {addPost, getSeriesList, getSiteList, getTopicList, updatePost,} from "@/libs/api/Admin.api";
+import {
+  addPost,
+  getSeriesList,
+  getSiteList,
+  getTopicList,
+  updatePost,
+} from "@/libs/api/Admin.api";
 import PostDto from "@/libs/dto/admin/PostDto";
-import {useRouter} from "next/navigation";
-import {inputStyle} from "@/components/Admin/AdminConstantClassNames";
+import { useRouter } from "next/navigation";
+import { inputStyle } from "@/components/Admin/AdminConstantClassNames";
 
 export default function PostAddOrUpdate({
   post,
