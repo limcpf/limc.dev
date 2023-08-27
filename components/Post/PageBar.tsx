@@ -2,15 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import Page from "@/libs/class/Page.class";
-import Post from "@/libs/class/Post.class";
 
-export default function PostPageBar({
-  postPage,
+export default function PageBar<T>({
+  tPage,
 }: {
-  postPage: Page<Post>;
+  tPage: Page<T>;
+  setPage?: (page: string) => void;
 }) {
   const router = useRouter();
-  const curPage = postPage.pageable.pageNumber;
+  const curPage = tPage.pageable.pageNumber;
 
   const pageBtnClass = "flex items-center cursor-pointer text-xl";
 
@@ -18,7 +18,7 @@ export default function PostPageBar({
     <div className="grid grid-cols-12 w-full">
       <div
         className={`${
-          postPage.first && "hidden"
+          tPage.first && "hidden"
         } col-start-1 col-end-2 md:col-start-4 md:col-end-5 ${pageBtnClass} justify-end`}
         onClick={() => router.push(`?page=${curPage - 1}`)}
       >
@@ -33,11 +33,11 @@ export default function PostPageBar({
               type="number"
               className="block w-4/5 bg-gray-50 rounded-s-lg p-2.5 focus:outline-none"
               min={1}
-              max={postPage.totalPages}
+              max={tPage.totalPages}
               defaultValue={curPage || "1"}
               required
             />
-            <span className="text-gray-300 absolute right-0 bottom-0.5 font-medium rounded-lg text-sm px-4 py-2 ">{`/ ${postPage.totalPages}`}</span>
+            <span className="text-gray-300 absolute right-0 bottom-0.5 font-medium rounded-lg text-sm px-4 py-2 ">{`/ ${tPage.totalPages}`}</span>
           </div>
           <button
             type="submit"
@@ -49,7 +49,7 @@ export default function PostPageBar({
       </div>
       <div
         className={`${
-          postPage.last && "hidden"
+          tPage.last && "hidden"
         } col-start-12 col-end-13 md:col-start-8 md:col-end-9 ${pageBtnClass} justify-start`}
         onClick={() => router.push(`?page=${curPage}`)}
       >

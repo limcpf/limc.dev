@@ -2,17 +2,18 @@
 
 import Post from "@/libs/class/Post.class";
 import { FormEventHandler, useEffect, useRef, useState } from "react";
-import PostInputWrapper from "@/components/Admin/AdminPost/PostInputWrapper";
-import PostSelect from "@/components/Admin/AdminPost/PostSelect";
+import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
+import AdminSelect from "@/components/Admin/Input/AdminSelect";
 import {
+  addPost,
   getSeriesList,
   getSiteList,
   getTopicList,
-  addPost,
   updatePost,
 } from "@/libs/api/Admin.api";
 import PostDto from "@/libs/dto/admin/PostDto";
 import { useRouter } from "next/navigation";
+import { inputStyle } from "@/components/Admin/AdminConstantClassNames";
 
 export default function PostAddOrUpdate({
   post,
@@ -126,54 +127,52 @@ export default function PostAddOrUpdate({
         .catch(addOrUpdateCatchCallback);
   };
 
-  const inputStyle =
-    "bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg block w-full p-2.5";
   return (
     <div className="w-full py-3">
       <div className="text-center text-2xl font-bold mb-5">
         게시글 {isUpdate ? "수정" : "작성"}
       </div>
       <form onSubmit={onSubmit} className="w-full grid grid-cols-8 px-6 gap-3">
-        <PostInputWrapper title="사이트" span={4}>
-          <PostSelect
+        <AdminInputWrapper title="사이트" span={4}>
+          <AdminSelect
             value={site}
             isChild={false}
             setFunction={setSite}
             dataFunction={getSiteList}
           />
-        </PostInputWrapper>
-        <PostInputWrapper title="주제" span={4}>
-          <PostSelect
+        </AdminInputWrapper>
+        <AdminInputWrapper title="주제" span={4}>
+          <AdminSelect
             value={topic}
             isChild={true}
             parentValue={site}
             setFunction={setTopic}
             dataFunction={getTopicList}
           />
-        </PostInputWrapper>
-        <PostInputWrapper title="시리즈">
-          <PostSelect
+        </AdminInputWrapper>
+        <AdminInputWrapper title="시리즈">
+          <AdminSelect
             value={series}
             isChild={true}
             parentValue={topic}
             setFunction={setSeries}
             dataFunction={getSeriesList}
           />
-        </PostInputWrapper>
-        <PostInputWrapper title="제목">
+        </AdminInputWrapper>
+        <AdminInputWrapper title="제목">
           <input className={inputStyle} ref={titleRef} type="text" required />
-        </PostInputWrapper>
-        <PostInputWrapper title="요약">
+        </AdminInputWrapper>
+        <AdminInputWrapper title="요약">
           <textarea className={inputStyle} ref={summaryRef} rows={5}></textarea>
-        </PostInputWrapper>
-        <PostInputWrapper title="내용">
+        </AdminInputWrapper>
+        <AdminInputWrapper title="내용">
           <textarea
             className={inputStyle}
             ref={contentRef}
             rows={10}
             required
           ></textarea>
-        </PostInputWrapper>
+        </AdminInputWrapper>
         <button
           type="submit"
           className="

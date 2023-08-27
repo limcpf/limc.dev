@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export default function PostSelect({
+export default function AdminSelect({
   value,
   isChild,
   dataFunction,
