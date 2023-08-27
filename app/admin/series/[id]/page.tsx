@@ -55,15 +55,16 @@ export default function AdminSeriesDetail({
           </div>
         </div>
       )}
-      {series && (
-        <main className="w-full flex flex-col p-2">
+      {series && (<>
+          <main className="w-full flex flex-col p-2">
           <PostList
             getFunc={getPostBySeriesInAdmin}
             page={page}
             id={id}
             isAdmin={true}
           />
-        </main>
+          </main>
+        </>
       )}
     </div>
   );

@@ -1,8 +1,8 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { deleteTopic } from "@/libs/api/Admin.api";
+import {useRouter} from "next/navigation";
+import {deleteTopic} from "@/libs/api/Admin.api";
 
-export default function AdminTopicCardFooter({
+export default function TopicListItemFooter({
   id,
   name,
 }: {
@@ -10,6 +10,7 @@ export default function AdminTopicCardFooter({
   name: string;
 }) {
   const router = useRouter();
+
   const className =
     "cursor-pointer transition hover:bg-gray-50 col-span-1 p-2 text-center";
   const updBtnOnClick = () => router.push(`/admin/topic/${id}/update`);

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PostInputWrapper({
+export default function AdminInputWrapper({
   span,
   title,
   children,

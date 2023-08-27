@@ -5,7 +5,7 @@ import {getPostByTopicInAdmin, getSeriesByTopicInAdmin, getTopicInAdmin,} from "
 import Topic from "@/libs/class/Topic.class";
 import PostList from "@/components/Post/List/PostList";
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
-import AdminTab from "@/components/Admin/AdminTab/AdminTab";
+import AdminTab from "@/components/Admin/Tab/AdminTab";
 import TopicHeader from "@/app/admin/topic/[id]/TopicHeader";
 import Loading from "@/components/Util/Loading";
 import SeriesList from "@/components/Series/List/SeriesList";
@@ -58,7 +58,6 @@ export default function AdminTopicDetail({
           />
         </main>
       )}
-
       {topic && mode === "series" && (
         <>
           <SeriesList getFunc={getSeriesByTopicInAdmin} isAdmin={true} page={page} id={id}/>

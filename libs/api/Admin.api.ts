@@ -1,14 +1,16 @@
-import { AdminDto } from "@/libs/dto/admin/AdminDto";
+import {AdminDto} from "@/libs/dto/admin/AdminDto";
 import LoginDto from "@/libs/dto/admin/LoginDto";
-import { NEXT_PUBLIC_SERVER_URL } from "@/libs/constant/Api.constant";
+import {NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/Api.constant";
 import Page from "../class/Page.class";
 import Post from "../class/Post.class";
-import { METHOD, METHODS } from "./Constant.api";
+import {METHOD, METHODS} from "./Constant.api";
 import PostDto from "@/libs/dto/admin/PostDto";
 import Series from "@/libs/class/Series.class";
 import SeriesDto from "@/libs/dto/admin/SeriesDto";
 import TopicDto from "@/libs/dto/admin/TopicDto";
 import Topic from "@/libs/class/Topic.class";
+import Site from "@/libs/class/Site.class";
+import SiteDto from "@/libs/dto/admin/SiteDto";
 
 async function adminFetch(url: string, method: METHOD, body?: any) {
   let header: Headers = new Headers();
@@ -76,6 +78,18 @@ export async function getTopicPageInAdmin(page: string) {
   }
 }
 
+export async function getSitePageInAdmin(page: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/site?page=${page || "1"}`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Page<Site>;
+  else {
+    if (json.status === 404) return Page.getEmptyPage() as Page<Topic>;
+    else throw new Error(json.error || "알 수 없는 오류입니다.");
+  }
+}
+
 export async function getPostInAdmin(id: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/post/${id}`;
   const response = await adminFetch(url, METHODS.GET);
@@ -103,6 +117,15 @@ export async function getTopicInAdmin(id: string) {
   else throw new Error(json.error || "알 수 없는 오류입니다.");
 }
 
+export async function getSiteInAdmin(name: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/site/${name}`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Site;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+
 export async function getPostBySeriesInAdmin(id: string, page?: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/post/series/${id}?page=${
     page || "1"
@@ -127,6 +150,37 @@ export async function getSeriesByTopicInAdmin(id: string, page?: string) {
 export async function getPostByTopicInAdmin(id: string, page?: string) {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/post/topic/${id}?page=${
     page || "1"
+  }`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Page<Post>;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+
+export async function getTopicBySiteInAdmin(name: string, page?: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/topic/site/${name}?page=${
+      page || "1"
+  }`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Page<Topic>;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+export async function getSeriesBySiteInAdmin(id: string, page?: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/series/site/${id}?page=${
+      page || "1"
+  }`;
+  const response = await adminFetch(url, METHODS.GET);
+  const json = await response.json();
+
+  if (response.ok) return json as Page<Series>;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+export async function getPostBySiteInAdmin(id: string, page?: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/post/site/${id}?page=${
+      page || "1"
   }`;
   const response = await adminFetch(url, METHODS.GET);
   const json = await response.json();
@@ -187,6 +241,18 @@ export async function deleteTopic(id: string) {
   }
 }
 
+export async function deleteSite(name: string) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/site/${name}`;
+  const response = await adminFetch(url, METHODS.DELETE);
+
+  if (response.ok) {
+    return true;
+  } else {
+    const json = await response.json();
+    throw new Error(json.error || "알 수 없는 오류입니다.");
+  }
+}
+
 export async function getSiteList() {
   const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/site/list`;
   const response = await adminFetch(url, METHODS.GET);
@@ -237,6 +303,15 @@ export async function addTopic(topicDto: TopicDto) {
   const json = await response.json();
 
   if (response.ok) return json as Topic;
+  else throw new Error(json.error || "알 수 없는 오류입니다.");
+}
+
+export async function addSite(siteDto: SiteDto) {
+  const url = `${NEXT_PUBLIC_SERVER_URL}/api/private/site`;
+  const response = await adminFetch(url, METHODS.POST, siteDto);
+  const json = await response.json();
+
+  if (response.ok) return json as Site;
   else throw new Error(json.error || "알 수 없는 오류입니다.");
 }
 

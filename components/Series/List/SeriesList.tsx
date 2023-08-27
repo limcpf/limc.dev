@@ -5,6 +5,7 @@ import {getListFunc} from "@/libs/api/api";
 import Loading from "@/components/Util/Loading";
 import PageBar from "@/components/Post/PageBar";
 import SeriesListItem from "@/components/Series/List/SeriesListItem";
+import AddBtn from "@/components/Admin/addBtn";
 
 export default function SeriesList({id, page, getFunc, isAdmin}:{
     id?: string;
@@ -28,6 +29,7 @@ export default function SeriesList({id, page, getFunc, isAdmin}:{
 
     return (
         <main className="w-full flex flex-col p-3">
+            {isAdmin && <AddBtn href="/admin/series/add" text={"생성"} /> }
             <div className="hidden sm:grid sm:grid-cols-4 sm:border-b sm:border-b-gray-300 sm:pb-3">
                 <div className={title}>주제</div>
                 <div className={title + " col-span-3"}>제목</div>

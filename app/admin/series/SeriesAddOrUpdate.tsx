@@ -1,18 +1,13 @@
 "use client";
 
 import Series from "@/libs/class/Series.class";
-import { useRouter } from "next/navigation";
-import { FormEventHandler, useEffect, useRef, useState } from "react";
+import {useRouter} from "next/navigation";
+import {FormEventHandler, useEffect, useRef, useState} from "react";
 import SeriesDto from "@/libs/dto/admin/SeriesDto";
-import {
-  addSeries,
-  getSiteList,
-  getTopicList,
-  updateSeries,
-} from "@/libs/api/Admin.api";
-import PostInputWrapper from "@/components/Admin/AdminPost/PostInputWrapper";
-import PostSelect from "@/components/Admin/AdminPost/PostSelect";
-import { inputStyle } from "@/components/Admin/AdminConstantClassNames";
+import {addSeries, getSiteList, getTopicList, updateSeries,} from "@/libs/api/Admin.api";
+import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
+import AdminSelect from "@/components/Admin/Input/AdminSelect";
+import {inputStyle} from "@/components/Admin/AdminConstantClassNames";
 
 export default function SeriesAddOrUpdate({
   series,
@@ -75,26 +70,26 @@ export default function SeriesAddOrUpdate({
         시리즈 {isUpdate ? "수정" : "작성"}
       </div>
       <form onSubmit={onSubmit} className="w-full grid grid-cols-8 px-6 gap-3">
-        <PostInputWrapper title="사이트" span={4}>
-          <PostSelect
+        <AdminInputWrapper title="사이트" span={4}>
+          <AdminSelect
             value={site}
             isChild={false}
             setFunction={setSite}
             dataFunction={getSiteList}
           />
-        </PostInputWrapper>
-        <PostInputWrapper title="주제" span={4}>
-          <PostSelect
+        </AdminInputWrapper>
+        <AdminInputWrapper title="주제" span={4}>
+          <AdminSelect
             value={topic}
             isChild={true}
             parentValue={site}
             setFunction={setTopic}
             dataFunction={getTopicList}
           />
-        </PostInputWrapper>
-        <PostInputWrapper title="제목">
+        </AdminInputWrapper>
+        <AdminInputWrapper title="제목">
           <input className={inputStyle} ref={titleRef} type="text" required />
-        </PostInputWrapper>
+        </AdminInputWrapper>
         <button
           type="submit"
           className="
