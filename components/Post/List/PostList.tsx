@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Page from "@/libs/class/Page.class";
 import Post from "@/libs/class/Post.class";
 import Loading from "@/components/Util/Loading";
-import PostListItem from "@/components/Post/Card/PostListItem";
+import PostListItem from "@/components/Post/List/PostListItem";
 import PageBar from "@/components/Post/PageBar";
-
-type getPostList = (page?: string) => Promise<Page<Post>>;
-type getPostByIdList = (id: string, page?: string) => Promise<Page<Post>>;
+import {getListFunc} from "@/libs/api/api";
 
 export default function PostList({
   getFunc,
@@ -16,7 +14,7 @@ export default function PostList({
   isAdmin,
   id,
 }: {
-  getFunc: getPostList | getPostByIdList;
+  getFunc: getListFunc<Post>;
   id?: string;
   page?: string;
   isAdmin?: boolean;

@@ -1,8 +1,8 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { deleteSeries } from "@/libs/api/Admin.api";
+import {useRouter} from "next/navigation";
+import {deleteSeries} from "@/libs/api/Admin.api";
 
-export default function AdminSeriesCardFooter({
+export default function SeriesListItemFooter({
   id,
   title,
 }: {
@@ -10,6 +10,7 @@ export default function AdminSeriesCardFooter({
   title: string;
 }) {
   const router = useRouter();
+
   const className =
     "cursor-pointer transition hover:bg-gray-50 col-span-1 p-2 text-center";
   const updBtnOnClick = () => router.push(`/admin/series/${id}/update`);

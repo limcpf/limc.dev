@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Series from "@/libs/class/Series.class";
-import { getPostBySeriesInAdmin, getSeriesInAdmin } from "@/libs/api/Admin.api";
-import PostList from "@/components/Post/PostList";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import {getPostBySeriesInAdmin, getSeriesInAdmin} from "@/libs/api/Admin.api";
+import PostList from "@/components/Post/List/PostList";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 
 export default function AdminSeriesDetail({
   params,

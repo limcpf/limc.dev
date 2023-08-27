@@ -1,8 +1,8 @@
 "use client";
 
-import { getPostPage } from "@/libs/api/Post.api";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import PostList from "@/components/Post/PostList";
+import {getPostPage} from "@/libs/api/Post.api";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import PostList from "@/components/Post/List/PostList";
 
 export default async function Home({
   searchParams,

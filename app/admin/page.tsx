@@ -1,10 +1,10 @@
 "use client";
 
-import { getPostPageInAdmin } from "@/libs/api/Admin.api";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import {getPostPageInAdmin} from "@/libs/api/Admin.api";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import React from "react";
 import AddBtn from "@/components/Admin/addBtn";
-import PostList from "@/components/Post/PostList";
+import PostList from "@/components/Post/List/PostList";
 
 export default function adminMain({ searchParams }: { searchParams: Params }) {
   const page = searchParams.page;

@@ -2,9 +2,9 @@
 
 import Post from "@/libs/class/Post.class";
 import React from "react";
-import PostListItemBody from "@/components/Post/Card/PostListItemBody";
-import PostListItemFooter from "@/components/Post/Card/PostListItemFooter";
-import PostListItemHeader from "@/components/Post/Card/PostListItemHeader";
+import PostListItemBody from "@/components/Post/List/PostListItemBody";
+import PostListItemFooter from "@/components/Post/List/PostListItemFooter";
+import PostListItemHeader from "@/components/Post/List/PostListItemHeader";
 
 export default function PostListItem({
   post,
@@ -14,7 +14,7 @@ export default function PostListItem({
   isAdmin?: boolean;
 }) {
   return (
-    <div className="flex flex-col p-1 w-full h-fit">
+    <div className="flex flex-col p-1 w-full h-fit cursor-pointer">
       <div className="flex flex-col px-2 py-1 ">
         <PostListItemHeader post={post} isAdmin={isAdmin} />
         <PostListItemBody post={post} isAdmin={isAdmin} />

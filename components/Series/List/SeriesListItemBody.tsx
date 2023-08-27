@@ -1,9 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 import Series from "@/libs/class/Series.class";
 
-export default function AdminSeriesCard({ series }: { series: Series }) {
+export default function SeriesListItemBody({ series, isAdmin }: { series: Series, isAdmin?:boolean }) {
   const router = useRouter();
   const { id, topicName, title } = series;
 
@@ -14,7 +14,7 @@ export default function AdminSeriesCard({ series }: { series: Series }) {
 
   return (
     <div
-      onClick={() => router.push(`/admin/series/${id}`)}
+      onClick={() => router.push(`${isAdmin ? "/admin" : ""}/series/${id}`)}
       className={
         gridCommon +
         " grid-cols-1 grid-rows-3 sm:grid-cols-4 sm:grid-rows-2 gap-x-1 py-3 border-b  sm:mt-1"

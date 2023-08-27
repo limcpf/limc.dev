@@ -1,20 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Page from "@/libs/class/Page.class";
-import {
-  getPostByTopicInAdmin,
-  getSeriesByTopicInAdmin,
-  getTopicInAdmin,
-} from "@/libs/api/Admin.api";
+import React, {useEffect, useState} from "react";
+import {getPostByTopicInAdmin, getSeriesByTopicInAdmin, getTopicInAdmin,} from "@/libs/api/Admin.api";
 import Topic from "@/libs/class/Topic.class";
-import Series from "@/libs/class/Series.class";
-import AdminSeriesList from "@/app/admin/series/AdminSeriesList";
-import PostList from "@/components/Post/PostList";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import PostList from "@/components/Post/List/PostList";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/AdminTab/AdminTab";
 import TopicHeader from "@/app/admin/topic/[id]/TopicHeader";
 import Loading from "@/components/Util/Loading";
+import SeriesList from "@/components/Series/List/SeriesList";
 
 /**
  * TODO 6: 관리자에서 public 으로 포스트 가져오는 애들 발행 안된애들도 가져오는지 체크해야할듯...? 분리해야지 따로 써야하니깐
@@ -37,7 +31,6 @@ export default function AdminTopicDetail({
   searchParams,
 }: { params: { id: string }; searchParams: Params }) {
   const [topic, setTopic] = useState<Topic>();
-  const [series, setSeries] = useState<Page<Series>>();
   const [mode, setMode] = useState<string>("series");
 
   const { id } = params;
@@ -46,9 +39,6 @@ export default function AdminTopicDetail({
   useEffect(() => {
     getTopicInAdmin(id).then((topic) => {
       setTopic(topic);
-    });
-    getSeriesByTopicInAdmin(id).then((s) => {
-      setSeries(s);
     });
   }, []);
 
@@ -69,9 +59,9 @@ export default function AdminTopicDetail({
         </main>
       )}
 
-      {series && mode === "series" && (
+      {topic && mode === "series" && (
         <>
-          <AdminSeriesList series={series} />
+          <SeriesList getFunc={getSeriesByTopicInAdmin} isAdmin={true} page={page} id={id}/>
         </>
       )}
     </div>
