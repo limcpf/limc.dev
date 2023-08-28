@@ -1,9 +1,9 @@
-import { AdminDto } from "@/libs/dto/admin/AdminDto";
+import {AdminDto} from "@/libs/dto/admin/AdminDto";
 import LoginDto from "@/libs/dto/admin/LoginDto";
-import { NEXT_PUBLIC_SERVER_URL } from "@/libs/constant/Api.constant";
+import {NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/Api.constant";
 import Page from "../class/Page.class";
 import Post from "../class/Post.class";
-import { METHOD, METHODS } from "./Constant.api";
+import {METHOD, METHODS} from "./Constant.api";
 import PostDto from "@/libs/dto/admin/PostDto";
 import Series from "@/libs/class/Series.class";
 import SeriesDto from "@/libs/dto/admin/SeriesDto";
@@ -29,13 +29,64 @@ async function adminFetch(url: string, method: METHOD, body?: any) {
   return await fetch(url, option);
 }
 
-export async function login(adminDto: AdminDto) {
-  const url = `${NEXT_PUBLIC_SERVER_URL}/api/public/login`;
-  const response = await adminFetch(url, METHODS.POST, adminDto);
+
+async function adminFetch2(url: string, method: METHOD, body?: any) {
+  /** Header 정의 */
+  let header: Headers = new Headers();
+  header.set("Content-type", "application/json");
+
+  /** Option 정의 */
+  const option: RequestInit = {
+    method: method,
+    headers: header,
+    credentials: "include",
+    next: { revalidate: 60 },
+  };
+
+  /** post, patch 인 경우 body 정의 */
+  if ((method === METHODS.POST || method === METHODS.PATCH) && !!body) {
+    option.body = JSON.stringify(body);
+  }
+
+  const response = await fetch(url, option);
   const json = await response.json();
 
-  if (response.ok) return json as LoginDto;
-  else throw new Error(json.error || "알 수 없는 오류입니다.");
+  if(response.ok) {
+    return json;
+  } else {
+    throw new Error(json.error || "알 수 없는 오류입니다.");
+  }
+}
+
+const urlMap = new Map<string, string>();
+
+urlMap.set("login", "/api/public/login");
+urlMap.set("getPostPri", "/api/private/post");
+urlMap.set("getSeriesPri", "/api/private/series");
+urlMap.set("getTopicPri", "/api/private/topic");
+
+const getUrl = (key:string, suffix?:string) => {
+  const url = urlMap.get(key);
+
+  if(!url) throw new ReferenceError("NO_URL", {
+    cause: "존재하지 않는 URL로의 요청"
+  });
+  
+  return `${NEXT_PUBLIC_SERVER_URL}${url}${suffix ? suffix : ""}`;
+}
+
+export async function login(adminDto: AdminDto) {
+  try {
+    const url = getUrl("login");
+    const response = await adminFetch2(url, METHODS.POST, adminDto);
+
+    return response as LoginDto;
+  } catch (e:any) {
+    if(e instanceof Error) {
+      if(e.message === "Unauthorized") throw new Error("올바르지 않은 ID, PW 입니다.")
+      throw new Error("알 수 없는 오류입니다.");
+    }
+  }
 }
 
 export async function getPostPageInAdmin(page?: string) {

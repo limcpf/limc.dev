@@ -1,7 +1,7 @@
 "use client";
-import React, { FormEventHandler, useRef } from "react";
-import { login } from "@/libs/api/Admin.api";
-import { AdminDto } from "@/libs/dto/admin/AdminDto";
+import React, {FormEventHandler, useRef} from "react";
+import {login} from "@/libs/api/Admin.api";
+import {AdminDto} from "@/libs/dto/admin/AdminDto";
 
 export default function AdminLogin() {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -28,18 +28,8 @@ export default function AdminLogin() {
     if (name && pw) {
       const adminDto = new AdminDto(name, pw);
       login(adminDto)
-        .then((loginDto) => {
-          if (!loginDto) {
-            alert("로그인 정보가 없습니다!");
-            return;
-          }
-
-          alert("로그인 성공!");
-          location.reload();
-        })
-        .catch(() => {
-          alert("ID, PW 가 올바르지 않습니다.");
-        });
+        .then(() => location.reload())
+        .catch(e => { if(e instanceof Error) alert(e.message) });
     }
   };
 
