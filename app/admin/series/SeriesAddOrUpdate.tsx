@@ -35,8 +35,8 @@ export default function SeriesAddOrUpdate({
     if (isUpdate) setSeriesField(series.title);
   }, []);
 
-  const addOrUpdateCallback = (s: Series) => {
-    if (s.id) {
+  const addOrUpdateCallback = (s?: Series) => {
+    if (s && s.id) {
       alert("시리즈가 등록되었습니다!");
       router.push(`/admin/series/${s.id}`);
     }

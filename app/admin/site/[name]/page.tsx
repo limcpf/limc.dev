@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   getPostPageBySiteInAdmin,
   getSeriesBySiteInAdmin,
@@ -8,7 +8,7 @@ import {
   getTopicBySiteInAdmin,
 } from "@/libs/api/Admin.api";
 import PostList from "@/components/Post/List/PostList";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/Tab/AdminTab";
 import Loading from "@/components/Util/Loading";
 import SeriesList from "@/components/Series/List/SeriesList";

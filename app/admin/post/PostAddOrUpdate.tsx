@@ -105,8 +105,8 @@ export default function PostAddOrUpdate({
       localStorage.setItem("limcDevPost", JSON.stringify(postDto));
     };
 
-    const addOrUpdateCallback = (p: Post) => {
-      if (p.id) {
+    const addOrUpdateCallback = (p?: Post) => {
+      if (p && p.id) {
         alert("게시글이 등록되었습니다!");
         router.push("/admin");
       } else {

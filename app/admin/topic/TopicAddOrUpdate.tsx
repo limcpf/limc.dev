@@ -29,8 +29,8 @@ export default function TopicAddOrUpdate({
     if (isUpdate) setTopicField(topic.name);
   }, []);
 
-  const addOrUpdateCallback = (t: Topic) => {
-    if (t.id) {
+  const addOrUpdateCallback = (t?: Topic) => {
+    if (t && t.id) {
       alert("토픽이 등록되었습니다!");
       router.push(`/admin/topic/${t.id}`);
     }
