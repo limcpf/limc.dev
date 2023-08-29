@@ -18,7 +18,8 @@ export const URLS = {
   "getPostPageBySitePub": "/api/public/post/site",
   "getSeriesPageByTopicPub": "/api/public/series/topic",
   "getSeriesPageBySitePub": "/api/public/series/topic",
-  "getTopicBySiteInAdmin": "/api/public/topic/site"
+  "getTopicBySiteInAdmin": "/api/public/topic/site",
+  "togglePublished": "/api/private/post/publish"
 } as const;
 
 export type URLS = typeof URLS[keyof typeof URLS];
