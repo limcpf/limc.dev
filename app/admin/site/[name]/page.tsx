@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
-  getPostBySiteInAdmin,
+  getPostPageBySiteInAdmin,
   getSeriesBySiteInAdmin,
   getSiteInAdmin,
   getTopicBySiteInAdmin,
 } from "@/libs/api/Admin.api";
 import PostList from "@/components/Post/List/PostList";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/Tab/AdminTab";
 import Loading from "@/components/Util/Loading";
 import SeriesList from "@/components/Series/List/SeriesList";
@@ -67,7 +67,7 @@ export default function AdminSiteDetail({
       {site && mode === "post" && (
         <main className="w-full flex flex-col p-2">
           <PostList
-            getFunc={getPostBySiteInAdmin}
+            getFunc={getPostPageBySiteInAdmin}
             page={page}
             id={name}
             isAdmin={true}

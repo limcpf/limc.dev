@@ -1,8 +1,8 @@
 "use client";
 
 import Page from "@/libs/class/Page.class";
-import React, { useEffect, useState } from "react";
-import { getListFunc } from "@/libs/api/api";
+import React, {useEffect, useState} from "react";
+import {getListFunc} from "@/libs/api/api";
 import Loading from "@/components/Util/Loading";
 import PageBar from "@/components/Post/PageBar";
 import AddBtn from "@/components/Admin/addBtn";
@@ -22,7 +22,7 @@ export default function SiteList({
 }) {
   const [curPageSite, setCurPageSite] = useState<Page<Site>>();
 
-  const callbackPageSite = (pageSite: Page<Site>) => {
+  const callbackPageSite = (pageSite?: Page<Site>) => {
     setCurPageSite(pageSite);
   };
 

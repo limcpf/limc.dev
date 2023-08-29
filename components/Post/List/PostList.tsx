@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Page from "@/libs/class/Page.class";
 import Post from "@/libs/class/Post.class";
 import Loading from "@/components/Util/Loading";
 import PostListItem from "@/components/Post/List/PostListItem";
 import PageBar from "@/components/Post/PageBar";
-import { getListFunc } from "@/libs/api/api";
+import {getListFunc} from "@/libs/api/api";
 import AddBtn from "@/components/Admin/addBtn";
 
 export default function PostList({
@@ -22,7 +22,7 @@ export default function PostList({
 }) {
   const [curPagePost, setCurPagePost] = useState<Page<Post>>();
 
-  const callbackPagePost = (pagePost: Page<Post>) => setCurPagePost(pagePost);
+  const callbackPagePost = (pagePost?: Page<Post>) => setCurPagePost(pagePost);
 
   useEffect(() => {
     if (id) getFunc(id, page || "1").then(callbackPagePost);

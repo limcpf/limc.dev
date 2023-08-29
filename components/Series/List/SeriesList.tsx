@@ -1,7 +1,7 @@
 import Page from "@/libs/class/Page.class";
 import Series from "@/libs/class/Series.class";
-import React, { useEffect, useState } from "react";
-import { getListFunc } from "@/libs/api/api";
+import React, {useEffect, useState} from "react";
+import {getListFunc} from "@/libs/api/api";
 import Loading from "@/components/Util/Loading";
 import PageBar from "@/components/Post/PageBar";
 import SeriesListItem from "@/components/Series/List/SeriesListItem";
@@ -20,7 +20,7 @@ export default function SeriesList({
 }) {
   const [curPageSeries, setCurPageSeries] = useState<Page<Series>>();
 
-  const callbackPageSeries = (pageSeries: Page<Series>) => {
+  const callbackPageSeries = (pageSeries?: Page<Series>) => {
     setCurPageSeries(pageSeries);
   };
 

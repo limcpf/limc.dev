@@ -1,8 +1,8 @@
 "use client";
 
 import Page from "@/libs/class/Page.class";
-import React, { useEffect, useState } from "react";
-import { getListFunc } from "@/libs/api/api";
+import React, {useEffect, useState} from "react";
+import {getListFunc} from "@/libs/api/api";
 import Loading from "@/components/Util/Loading";
 import PageBar from "@/components/Post/PageBar";
 import Topic from "@/libs/class/Topic.class";
@@ -22,7 +22,7 @@ export default function TopicList({
 }) {
   const [curPageTopic, setCurPageTopic] = useState<Page<Topic>>();
 
-  const callbackPageTopic = (pageTopic: Page<Topic>) => {
+  const callbackPageTopic = (pageTopic?: Page<Topic>) => {
     setCurPageTopic(pageTopic);
   };
 
