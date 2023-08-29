@@ -22,7 +22,7 @@ export default function TopicList({
 }) {
   const [curPageTopic, setCurPageTopic] = useState<Page<Topic>>();
 
-  const callbackPageTopic = (pageTopic: Page<Topic>) => {
+  const callbackPageTopic = (pageTopic?: Page<Topic>) => {
     setCurPageTopic(pageTopic);
   };
 

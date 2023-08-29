@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import {
-  getPostByTopicInAdmin,
+  getPostPageByTopicInAdmin,
   getSeriesByTopicInAdmin,
   getTopicInAdmin,
 } from "@/libs/api/Admin.api";
@@ -55,7 +55,7 @@ export default function AdminTopicDetail({
       {topic && mode === "post" && (
         <main className="w-full flex flex-col p-2">
           <PostList
-            getFunc={getPostByTopicInAdmin}
+            getFunc={getPostPageByTopicInAdmin}
             page={page}
             id={id}
             isAdmin={true}

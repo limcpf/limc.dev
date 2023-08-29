@@ -22,7 +22,7 @@ export default function SiteAdd() {
     const siteDto = new SiteDto(nameRef.current.value);
 
     addSite(siteDto).then((s) => {
-      if (s.name) {
+      if (s && s.name) {
         alert("토픽이 등록되었습니다!");
         router.push(`/admin/site/${s.name}`);
       }

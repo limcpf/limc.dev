@@ -1,8 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { deletePost, togglePublished } from "@/libs/api/Admin.api";
-import { useState } from "react";
+import {useRouter} from "next/navigation";
+import {deletePost, togglePublished} from "@/libs/api/Admin.api";
+import {useState} from "react";
 
 export default function PostListItemFooter({
   id,
@@ -18,7 +18,7 @@ export default function PostListItemFooter({
     if (!confirm(`'${title}'을(를) ${getPubWord()}하시겠습니까??`)) return;
     togglePublished(id).then((changedIsPublished) => {
       alert(`해당 게시글을 ${getPubWord()}하였습니다!`);
-      setIsPub(changedIsPublished);
+      setIsPub(!!changedIsPublished);
     });
   };
 

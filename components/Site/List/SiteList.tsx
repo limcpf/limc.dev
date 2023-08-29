@@ -22,7 +22,7 @@ export default function SiteList({
 }) {
   const [curPageSite, setCurPageSite] = useState<Page<Site>>();
 
-  const callbackPageSite = (pageSite: Page<Site>) => {
+  const callbackPageSite = (pageSite?: Page<Site>) => {
     setCurPageSite(pageSite);
   };
 

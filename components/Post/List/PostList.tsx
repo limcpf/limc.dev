@@ -22,7 +22,7 @@ export default function PostList({
 }) {
   const [curPagePost, setCurPagePost] = useState<Page<Post>>();
 
-  const callbackPagePost = (pagePost: Page<Post>) => setCurPagePost(pagePost);
+  const callbackPagePost = (pagePost?: Page<Post>) => setCurPagePost(pagePost);
 
   useEffect(() => {
     if (id) getFunc(id, page || "1").then(callbackPagePost);

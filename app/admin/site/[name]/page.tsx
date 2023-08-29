@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import {
-  getPostBySiteInAdmin,
+  getPostPageBySiteInAdmin,
   getSeriesBySiteInAdmin,
   getSiteInAdmin,
   getTopicBySiteInAdmin,
@@ -67,7 +67,7 @@ export default function AdminSiteDetail({
       {site && mode === "post" && (
         <main className="w-full flex flex-col p-2">
           <PostList
-            getFunc={getPostBySiteInAdmin}
+            getFunc={getPostPageBySiteInAdmin}
             page={page}
             id={name}
             isAdmin={true}

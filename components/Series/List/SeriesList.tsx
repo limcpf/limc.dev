@@ -20,7 +20,7 @@ export default function SeriesList({
 }) {
   const [curPageSeries, setCurPageSeries] = useState<Page<Series>>();
 
-  const callbackPageSeries = (pageSeries: Page<Series>) => {
+  const callbackPageSeries = (pageSeries?: Page<Series>) => {
     setCurPageSeries(pageSeries);
   };
 
