@@ -6,13 +6,12 @@ import SeriesListItem from "@/components/Series/List/SeriesListItem";
 import AddBtn from "@/components/Admin/addBtn";
 
 export default function SeriesListSC({
-    seriesPage,
-  isAdmin
+  seriesPage,
+  isAdmin,
 }: {
   seriesPage: Page<Series> | undefined;
   isAdmin?: boolean;
 }) {
-
   const title = " text-center font-light";
 
   return (
@@ -22,17 +21,19 @@ export default function SeriesListSC({
         <div className={title}>주제</div>
         <div className={title + " col-span-3"}>제목</div>
       </div>
-      {
-        seriesPage && seriesPage.content.length > 0 ? (
-          seriesPage.content.map((series,i) => (
-            <SeriesListItem key={`series-${i}`} series={series} isAdmin={isAdmin} />
-          ))
-        ) : (
-          <div className={"h-52 flex justify-center items-center w-full "}>
-            등록된 시리즈가 없습니다.
-          </div>
-        )
-      }
+      {seriesPage && seriesPage.content.length > 0 ? (
+        seriesPage.content.map((series, i) => (
+          <SeriesListItem
+            key={`series-${i}`}
+            series={series}
+            isAdmin={isAdmin}
+          />
+        ))
+      ) : (
+        <div className={"h-52 flex justify-center items-center w-full "}>
+          등록된 시리즈가 없습니다.
+        </div>
+      )}
 
       <PageBar<Series> tPage={seriesPage} />
     </main>

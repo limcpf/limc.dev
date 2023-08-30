@@ -1,5 +1,5 @@
-import {getSeriesPageBySite} from "@/libs/api/public.api";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { getSeriesPageBySite } from "@/libs/api/public.api";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import React from "react";
 import SeriesListSC from "@/components/Series/List/SeriesList.server";
 
@@ -13,10 +13,9 @@ export default async function SeriesHome({
 }) {
   const page = searchParams.page;
 
-  const seriesPage
-      = await getSeriesPageBySite(page);
+  const seriesPage = await getSeriesPageBySite(page);
 
-  return (<SeriesListSC seriesPage={seriesPage} />);
+  return <SeriesListSC seriesPage={seriesPage} />;
 }
 export async function generateMetadata() {
   return {

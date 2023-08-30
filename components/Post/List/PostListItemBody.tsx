@@ -3,6 +3,7 @@
 import Post from "@/libs/class/Post.class";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function PostListItemBody({
   post,
@@ -19,7 +20,7 @@ export default function PostListItemBody({
       onClick={() => router.push(`${isAdmin ? "/admin" : ""}/post/${id}`)}
     >
       <div className="text-2xl sm:text-md font-bold line-clamp-3 sm:line-clamp-1">
-        {title}
+        <Link href={`${isAdmin ? "/admin" : ""}/post/${id}`}>{title}</Link>
       </div>
       <div className="text-xs leading-5 line-clamp-3 font-light whitespace-normal break-words ">
         {summary}

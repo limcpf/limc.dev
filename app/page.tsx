@@ -1,5 +1,5 @@
-import {getPostPage} from "@/libs/api/post.api";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { getPostPage } from "@/libs/api/post.api";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import PostListSC from "@/components/Post/List/PostList.server";
 
 export default async function Home({

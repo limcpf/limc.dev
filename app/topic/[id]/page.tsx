@@ -1,7 +1,7 @@
 import React from "react";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import TopicDetail from "@/components/Topic/topic.server";
-import {getTopicById} from "@/libs/api/public.api";
+import { getTopicById } from "@/libs/api/public.api";
 
 /**
  * TODO 6: 관리자에서 public 으로 포스트 가져오는 애들 발행 안된애들도 가져오는지 체크해야할듯...? 분리해야지 따로 써야하니깐
@@ -16,21 +16,22 @@ export default async function TopicDetailPage({
   searchParams,
 }: {
   params: { id: string };
-  searchParams: Params
+  searchParams: Params;
 }) {
-
   const { id } = params;
   const page = searchParams.page;
   const mode = searchParams.mode || "series";
 
   const topic = await getTopicById(id);
 
-  if(topic) {
+  if (topic) {
     title = "LimC | 주제 - " + topic.name;
-    description = topic.name + "이라는 이름의 주제를 가진 시리즈 및 게시글 목록 페이지입니다.";
+    description =
+      topic.name +
+      "이라는 이름의 주제를 가진 시리즈 및 게시글 목록 페이지입니다.";
   }
 
-  return <TopicDetail topic={topic} page={page} mode={mode} />
+  return <TopicDetail topic={topic} page={page} mode={mode} />;
 }
 
 export async function generateMetadata() {

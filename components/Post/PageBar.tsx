@@ -1,6 +1,6 @@
 "use client";
 
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import Page from "@/libs/class/Page.class";
 
 export default function PageBar<T>({
@@ -9,12 +9,11 @@ export default function PageBar<T>({
   tPage: Page<T> | undefined;
   setPage?: (page: string) => void;
 }) {
-    if(!tPage) return <></>;
+  if (!tPage) return <></>;
   const router = useRouter();
   const curPage = tPage.pageable.pageNumber;
 
   const pageBtnClass = "flex items-center cursor-pointer text-xl";
-
 
   return (
     <div className="grid grid-cols-12 w-full">
