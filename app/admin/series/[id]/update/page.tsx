@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Series from "@/libs/class/Series.class";
-import { getSeriesInAdmin } from "@/libs/api/Admin.api";
+import { getSeriesInAdmin } from "@/libs/api/private.api";
 import SeriesAddOrUpdate from "@/app/admin/series/SeriesAddOrUpdate";
 
 export default function AdminSeriesUpdate({

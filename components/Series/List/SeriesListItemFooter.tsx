@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { deleteSeries } from "@/libs/api/Admin.api";
+import { deleteSeries } from "@/libs/api/private.api";
 
 export default function SeriesListItemFooter({
   id,

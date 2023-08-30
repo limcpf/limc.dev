@@ -9,7 +9,7 @@ import {
   getSiteList,
   getTopicList,
   updateSeries,
-} from "@/libs/api/Admin.api";
+} from "@/libs/api/private.api";
 import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
 import AdminSelect from "@/components/Admin/Input/AdminSelect";
 import { inputStyle } from "@/components/Admin/AdminConstantClassNames";

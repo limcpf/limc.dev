@@ -3,7 +3,7 @@
 import Topic from "@/libs/class/Topic.class";
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useEffect, useRef, useState } from "react";
-import { addTopic, getSiteList, updateTopic } from "@/libs/api/Admin.api";
+import { addTopic, getSiteList, updateTopic } from "@/libs/api/private.api";
 import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
 import AdminSelect from "@/components/Admin/Input/AdminSelect";
 import { inputStyle } from "@/components/Admin/AdminConstantClassNames";

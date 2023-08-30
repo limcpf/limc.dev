@@ -1,7 +1,6 @@
 import Post from "@/libs/class/Post.class";
 import Page from "@/libs/class/Page.class";
-import { NEXT_PUBLIC_SERVER_URL } from "@/libs/constant/Api.constant";
-import { METHODS } from "@/libs/api/Constant.api";
+import {METHODS, NEXT_PUBLIC_SERVER_URL} from "@/libs/constant/api.const";
 
 // export async function getPostPage(page?: string) {
 //   const t = await fetch(

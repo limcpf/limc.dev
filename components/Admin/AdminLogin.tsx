@@ -1,6 +1,6 @@
 "use client";
 import React, { FormEventHandler, useRef } from "react";
-import { login } from "@/libs/api/Admin.api";
+import { login } from "@/libs/api/private.api";
 import { AdminDto } from "@/libs/dto/admin/AdminDto";
 
 export default function AdminLogin() {

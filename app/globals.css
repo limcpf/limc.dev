@@ -33,36 +33,6 @@ body {
 .active {
   font-weight: normal!important;
 }
-.skeleton {
-  background: rgba(0,0,0,0.2);
-}
-.skeleton-content {
-  background: rgba(0,0,0,0.2);
-}
-.pre-span {
-  font-weight: lighter;
-  font-size:0.7rem;
-  color: var(--foreground-rgb);
-}
-.pre-title > span{
-  color: rgb(var(--foreground-rgb-pre));
-}
-.skeleton-img {
-  border-top-left-radius: 1rem; /* 16px */
-  border-top-right-radius: 1rem; /* 16px */
-  grid-row: span 3 / span 3;
-  background-image: url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM8sR4AAkUBeYQzMaEAAAAASUVORK5CYII=");
-}
-.post-card {
-  aspect-ratio: 1 / 1;
-  display: grid;
-  margin-bottom: 0.5rem;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-column: span 4 / span 4;
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-  border-radius: 1rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
 .text-es {
   font-size: 0.6rem;
 }
@@ -72,6 +42,15 @@ body {
   max-width: 980px;
   margin: 0 auto;
   padding: 45px;
+}
+.post-content > ul > li {
+  list-style-type: disc;
+}
+.post-content > ul > li > ul{
+  list-style-type: circle;
+}
+.post-content > ul > li > ul > li > ul{
+  list-style-type: square;
 }
 
 @media (max-width: 767px) {

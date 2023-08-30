@@ -1,7 +1,7 @@
 "use client";
 
 import {useRouter} from "next/navigation";
-import {deletePost, togglePublished} from "@/libs/api/Admin.api";
+import {deletePost, togglePublished} from "@/libs/api/private.api";
 import {useState} from "react";
 
 export default function PostListItemFooter({

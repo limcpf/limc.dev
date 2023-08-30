@@ -1,5 +1,5 @@
 "use client";
-import { deleteSite } from "@/libs/api/Admin.api";
+import { deleteSite } from "@/libs/api/private.api";
 
 export default function SiteListItemFooter({
   name,

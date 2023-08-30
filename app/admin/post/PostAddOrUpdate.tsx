@@ -10,7 +10,7 @@ import {
   getSiteList,
   getTopicList,
   updatePost,
-} from "@/libs/api/Admin.api";
+} from "@/libs/api/private.api";
 import PostDto from "@/libs/dto/admin/PostDto";
 import { useRouter } from "next/navigation";
 import { inputStyle } from "@/components/Admin/AdminConstantClassNames";

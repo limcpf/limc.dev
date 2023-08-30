@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getTopicInAdmin } from "@/libs/api/Admin.api";
+import { getTopicInAdmin } from "@/libs/api/private.api";
 import Topic from "@/libs/class/Topic.class";
 import TopicAddOrUpdate from "@/app/admin/topic/TopicAddOrUpdate";
 

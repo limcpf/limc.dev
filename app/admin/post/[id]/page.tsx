@@ -2,7 +2,7 @@
 
 import "./post.css";
 import PostWrapper from "@/components/Post/PostWrapper";
-import { getPostInAdmin } from "@/libs/api/Admin.api";
+import { getPostInAdmin } from "@/libs/api/private.api";
 import { useEffect, useState } from "react";
 import Post from "@/libs/class/Post.class";
 

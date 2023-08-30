@@ -2,7 +2,7 @@
 
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import React from "react";
-import { getSeriesPageInAdmin } from "@/libs/api/Admin.api";
+import { getSeriesPageInAdmin } from "@/libs/api/private.api";
 import SeriesList from "@/components/Series/List/SeriesList";
 
 export default function AdminSeries({

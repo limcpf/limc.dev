@@ -1,6 +1,6 @@
 "use client";
 
-import { getPostInAdmin } from "@/libs/api/Admin.api";
+import { getPostInAdmin } from "@/libs/api/private.api";
 import PostAddOrUpdate from "@/app/admin/post/PostAddOrUpdate";
 import { useEffect, useState } from "react";
 import Post from "@/libs/class/Post.class";
