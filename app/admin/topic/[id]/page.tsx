@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import {
-  getPostPageByTopicInAdmin,
+  getPostPageByTopic,
   getSeriesByTopicInAdmin,
   getTopicInAdmin,
-} from "@/libs/api/Admin.api";
+} from "@/libs/api/private.api";
 import Topic from "@/libs/class/Topic.class";
 import PostList from "@/components/Post/List/PostList";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
@@ -55,7 +55,7 @@ export default function AdminTopicDetail({
       {topic && mode === "post" && (
         <main className="w-full flex flex-col p-2">
           <PostList
-            getFunc={getPostPageByTopicInAdmin}
+            getFunc={getPostPageByTopic}
             page={page}
             id={id}
             isAdmin={true}

@@ -1,3 +1,4 @@
+import "github-markdown-css/github-markdown-light.css";
 import Markdown from "@/components/Util/Markdown";
 
 export default function Home() {
@@ -7,9 +8,9 @@ export default function Home() {
   
   현재 보험회사의 수행사에 재직하면서 보험 기간계 유지보수 업무를 맡고있습니다.
   
-  해당 블로그는 제가 공부한 내용을 올리기 위한 블로그로 각 게시글의 내용이 정확하지 않을 수 있습니다.
-    - 만약 내용 정정이나 개인 의견을 전하고 싶으시다면 하단의 이메일로 보내주시면 적극 반영하겠습니다.
-    - 그 외에 블로그 내에서 불편하다거나 추가되었으면 좋겠다 하는 기능에 대한 건의사항도 보내주시면 적극 반영하겠습니다.
+  해당 블로그는 제가 공부한 내용을 올리기 위한 블로그로 각 게시글의 내용이 정확하지 않을 수 있습니다. 
+  - 만약 내용 정정이나 개인 의견을 전하고 싶으시다면 하단의 이메일로 보내주시면 적극 반영하겠습니다.
+  - 그 외에 블로그 내에서 불편하다거나 추가되었으면 좋겠다 하는 기능에 대한 건의사항도 보내주시면 적극 반영하겠습니다.
   
   ## 개발 관련
   현재 저는 백엔드, 프론트엔드 두 분야 모두 관심을 가지고 있습니다.
@@ -28,8 +29,10 @@ export default function Home() {
   2023.08.06
   `;
   return (
-    <main className="flex flex-col p-3 min-h-screen w-full leading-8 list-disc">
-      <Markdown content={content} />
+    <main className="flex flex-col p-3 min-h-screen w-full leading-8">
+      <article className="markdown-body post-content">
+        <Markdown content={content} />
+      </article>
     </main>
   );
 }

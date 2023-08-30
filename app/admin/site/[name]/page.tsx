@@ -6,7 +6,7 @@ import {
   getSeriesBySiteInAdmin,
   getSiteInAdmin,
   getTopicBySiteInAdmin,
-} from "@/libs/api/Admin.api";
+} from "@/libs/api/private.api";
 import PostList from "@/components/Post/List/PostList";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/Tab/AdminTab";

@@ -6,9 +6,10 @@ import Page from "@/libs/class/Page.class";
 export default function PageBar<T>({
   tPage,
 }: {
-  tPage: Page<T>;
+  tPage: Page<T> | undefined;
   setPage?: (page: string) => void;
 }) {
+  if (!tPage) return <></>;
   const router = useRouter();
   const curPage = tPage.pageable.pageNumber;
 

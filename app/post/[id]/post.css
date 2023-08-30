@@ -30,15 +30,6 @@ h2 {
 h3 {
   font-size: 1.1rem;
 }
-.post-content > ul > li {
-  list-style-type: disc;
-}
-.post-content > ul > li > ul{
-  list-style-type: circle;
-}
-.post-content > ul > li > ul > li > ul{
-  list-style-type: square;
-}
 p > img {
   position: relative!important;
 }

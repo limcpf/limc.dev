@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useRef } from "react";
-import { addSite } from "@/libs/api/Admin.api";
+import { addSite } from "@/libs/api/private.api";
 import AdminInputWrapper from "@/components/Admin/Input/AdminInputWrapper";
 import { inputStyle } from "@/components/Admin/AdminConstantClassNames";
 import SiteDto from "@/libs/dto/admin/SiteDto";

@@ -2,7 +2,7 @@
 
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import SiteList from "@/components/Site/List/SiteList";
-import { getSitePageInAdmin } from "@/libs/api/Admin.api";
+import { getSitePageInAdmin } from "@/libs/api/private.api";
 
 export default function AdminSite({ searchParams }: { searchParams: Params }) {
   const page = searchParams.page;

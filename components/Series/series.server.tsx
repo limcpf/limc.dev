@@ -1,25 +1,19 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { getPostPageBySeries } from "@/libs/api/private.api";
 import Series from "@/libs/class/Series.class";
-import { getPostPageBySeries, getSeriesInAdmin } from "@/libs/api/private.api";
-import PostList from "@/components/Post/List/PostList";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import PostListSC from "@/components/Post/List/PostList.server";
+import { notFound } from "next/navigation";
 
-export default function AdminSeriesDetail({
-  params,
-  searchParams,
-}: { params: { id: string }; searchParams: Params }) {
-  const [series, setSeries] = useState<Series>();
+export default async function SeriesDetail({
+  series,
+  page,
+}: {
+  series: Series | undefined;
+  page: string;
+}) {
+  if (!series) notFound();
 
-  const { id } = params;
-  const page = searchParams.page;
-
-  useEffect(() => {
-    getSeriesInAdmin(id).then((series) => {
-      setSeries(series);
-    });
-  }, []);
+  const postPage = await getPostPageBySeries(series.id, page);
 
   return (
     <div className="w-full flex flex-col">
@@ -56,16 +50,9 @@ export default function AdminSeriesDetail({
         </div>
       )}
       {series && (
-        <>
-          <main className="w-full flex flex-col p-2">
-            <PostList
-              getFunc={getPostPageBySeries}
-              page={page}
-              id={id}
-              isAdmin={true}
-            />
-          </main>
-        </>
+        <main className="w-full flex flex-col p-2">
+          <PostListSC postPage={postPage} />
+        </main>
       )}
     </div>
   );

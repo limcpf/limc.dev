@@ -42,8 +42,12 @@ export default function TopicList({
       </div>
       {curPageTopic ? (
         curPageTopic.content.length > 0 ? (
-          curPageTopic.content.map((topic) => (
-            <TopicListItem topic={topic} isAdmin={isAdmin} />
+          curPageTopic.content.map((topic, i) => (
+            <TopicListItem
+              key={`${topic}-${i}`}
+              topic={topic}
+              isAdmin={isAdmin}
+            />
           ))
         ) : (
           <div className={"h-52 flex justify-center items-center w-full "}>

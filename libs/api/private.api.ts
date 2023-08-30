@@ -1,9 +1,8 @@
 import { AdminDto } from "@/libs/dto/admin/AdminDto";
 import LoginDto from "@/libs/dto/admin/LoginDto";
-import { NEXT_PUBLIC_SERVER_URL } from "@/libs/constant/Api.constant";
 import Page from "../class/Page.class";
 import Post from "../class/Post.class";
-import { METHOD, METHODS, URLS } from "./Constant.api";
+import { METHOD, METHODS, URLS } from "@/libs/constant/api.const";
 import PostDto from "@/libs/dto/admin/PostDto";
 import Series from "@/libs/class/Series.class";
 import SeriesDto from "@/libs/dto/admin/SeriesDto";
@@ -11,54 +10,15 @@ import TopicDto from "@/libs/dto/admin/TopicDto";
 import Topic from "@/libs/class/Topic.class";
 import Site from "@/libs/class/Site.class";
 import SiteDto from "@/libs/dto/admin/SiteDto";
+// @ts-ignore
+import { exceptionHandler, getUrl, limcFetch } from "@/libs/api/common.api";
 
 /**
  * common Function
  */
 async function adminFetch(url: string, method: METHOD, body?: any) {
-  /** Header 정의 */
-  let header: Headers = new Headers();
-  header.set("Content-type", "application/json");
-
-  /** Option 정의 */
-  const option: RequestInit = {
-    method: method,
-    headers: header,
-    credentials: "include",
-    next: { revalidate: 60 },
-  };
-
-  /** post, patch 인 경우 body 정의 */
-  if ((method === METHODS.POST || method === METHODS.PATCH) && !!body) {
-    option.body = JSON.stringify(body);
-  }
-
-  const response = await fetch(url, option);
-  let json;
-
-  try {
-    json = await response.json();
-  } catch (e) {
-    json = response.ok;
-  }
-
-  if (response.ok) {
-    return json;
-  } else {
-    throw new Error(json.error || "알 수 없는 오류입니다.");
-  }
+  return await limcFetch(url, method, true, body);
 }
-const getUrl = (url: URLS, suffix?: string) => {
-  return `${NEXT_PUBLIC_SERVER_URL}${url}${suffix ? suffix : ""}`;
-};
-const exceptionHandler = (e: any) => {
-  if (e instanceof Error) {
-    if (process.env.NODE_ENV === "development") console.log(e);
-    if (e.message === "Unauthorized")
-      throw new Error("로그인이 필요한 서비스입니다.");
-    throw new Error("알 수 없는 오류입니다.");
-  }
-};
 
 /**
  * common Function
@@ -164,14 +124,21 @@ export const getTopicInAdmin = async (id: string) =>
   await getOneInAdmin<Topic>(URLS.topicPri, id);
 export const getSiteInAdmin = async (id: string) =>
   await getOneInAdmin<Site>(URLS.sitePri, id);
-export const getPostPageBySeriesInAdmin = async (id: string, page?: string) => {
+export const getPostPageBySeries = async (id: string, page?: string) => {
   return await getOnePageByOneInAdmin<Post>(
     URLS.getPostPageBySeriesPub,
     id,
     page,
   );
 };
-export const getPostPageByTopicInAdmin = async (id: string, page?: string) => {
+export const getPostPageByTopic = async (id: string, page?: string) => {
+  return await getOnePageByOneInAdmin<Post>(
+    URLS.getPostPageByTopicPub,
+    id,
+    page,
+  );
+};
+export const getSeriesPageByTopic = async (id: string, page?: string) => {
   return await getOnePageByOneInAdmin<Post>(
     URLS.getPostPageByTopicPub,
     id,
@@ -201,7 +168,7 @@ export const getSeriesBySiteInAdmin = async (id: string, page?: string) => {
 };
 export const getTopicBySiteInAdmin = async (name: string, page?: string) => {
   return await getOnePageByOneInAdmin<Topic>(
-    URLS.getTopicBySiteInAdmin,
+    URLS.getTopicPageBySitePub,
     name,
     page,
   );
