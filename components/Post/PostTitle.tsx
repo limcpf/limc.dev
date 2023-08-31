@@ -10,6 +10,7 @@ export default function PostTitle({
   const smallTextClassName = "row-span-1 text-xs text-gray-400 font-extralight";
     const topicTextClassName = "row-span-1 text-sm !text-gray-400 font-extralight";
   return (<div className="flex flex-col my-5 border-b pb-3 text-center">
+      <title>{'LimC | ' + post.title}</title>
       <div className={topicTextClassName}>
           <Link href={`/topic/${topic}`}>{topicName}</Link>
       </div>

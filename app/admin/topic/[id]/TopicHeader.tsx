@@ -7,6 +7,7 @@ export default function TopicHeader({
 }) {
   return (
     <div className="text-center py-3 border-b">
+      <title>{'LimC | topic - ' + topic.name}</title>
       <h3 className="text-xl">{topic.site}</h3>
       <h1 className="font-bold text-3xl">{topic.name}</h1>
       <div className="grid grid-rows-2 grid-cols-2 px-3">
