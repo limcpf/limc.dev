@@ -1,5 +1,6 @@
 import "github-markdown-css/github-markdown-light.css";
 import Markdown from "@/components/Util/Markdown";
+import React from "react";
 
 export default function Home() {
   const content = `
@@ -30,6 +31,7 @@ export default function Home() {
   `;
   return (
     <main className="flex flex-col p-3 min-h-screen w-full leading-8">
+        <title>{'LimC | 소개'}</title>
       <article className="markdown-body post-content">
         <Markdown content={content} />
       </article>

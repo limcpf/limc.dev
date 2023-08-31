@@ -1,9 +1,6 @@
 import "./post.css";
 import PostWrapper from "@/components/Post/PostWrapper";
-import { getPost } from "@/libs/api/post.api";
-
-let title: string;
-let description: string;
+import {getPost} from "@/libs/api/post.api";
 
 export default async function RootPost({
   params,
@@ -12,26 +9,6 @@ export default async function RootPost({
 }) {
   const post = await getPost(params.id);
 
-  title = "LimC | " + post.title;
-  description = post.summary;
-
   return <PostWrapper post={post} />;
 }
 
-export async function generateMetadata() {
-  return {
-    title: title,
-    description: description,
-    authors: {
-      url: "https://github.com/limcpf",
-      name: "LimC",
-    },
-    openGraph: {
-      title: title,
-      description: description,
-      emails: "limcdevblog@gmail.com",
-      siteName: "limc.dev",
-      type: "website",
-    },
-  };
-}

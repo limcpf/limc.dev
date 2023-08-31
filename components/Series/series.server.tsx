@@ -1,8 +1,8 @@
 import React from "react";
-import { getPostPageBySeries } from "@/libs/api/private.api";
+import {getPostPageBySeries} from "@/libs/api/private.api";
 import Series from "@/libs/class/Series.class";
 import PostListSC from "@/components/Post/List/PostList.server";
-import { notFound } from "next/navigation";
+import {notFound} from "next/navigation";
 
 export default async function SeriesDetail({
   series,
@@ -17,6 +17,7 @@ export default async function SeriesDetail({
 
   return (
     <div className="w-full flex flex-col">
+      <title>{'LimC | series - ' + series.title}</title>
       {series && (
         <div className="text-center py-3 border-b">
           <h3 className="text-xl">{series.topicName}</h3>
