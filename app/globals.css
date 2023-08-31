@@ -41,7 +41,7 @@ body {
   min-width: 200px;
   max-width: 980px;
   margin: 0 auto;
-  padding: 45px;
+  padding: 15px 45px;
 }
 .post-content > ul > li {
   list-style-type: disc;
@@ -52,7 +52,17 @@ body {
 .post-content > ul > li > ul > li > ul{
   list-style-type: square;
 }
-
+.markdown-body h2 {
+  padding-left: 0.5rem;
+  font-size: 2em!important;
+}
+.markdown-body h3 {
+  padding-left: 0.5rem;
+  font-size: 1.5em!important;
+}
+.markdown-body hr {
+  margin: 12px 0!important;
+}
 @media (max-width: 767px) {
   .markdown-body {
     padding: 15px;
