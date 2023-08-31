@@ -11,7 +11,7 @@ export default function PostWrapper({
   return (
     <article className="markdown-body post-wrapper w-full flex flex-col">
       <div className="flex flex-col">
-        <PostTitle title={post.title} />
+        <PostTitle post={post} />
         <PostContent content={post.content} />
       </div>
     </article>
