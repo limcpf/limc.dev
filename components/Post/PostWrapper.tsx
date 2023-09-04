@@ -3,7 +3,7 @@ import Post from "@/libs/class/Post.class";
 import PostTitle from "@/components/Post/PostTitle";
 import PostContent from "@/components/Post/PostContent";
 
-export default async function PostWrapper({
+export default function PostWrapper({
   post,
 }: {
   post: Post;
