@@ -1,8 +1,8 @@
-import { AdminDto } from "@/libs/dto/admin/AdminDto";
+import {AdminDto} from "@/libs/dto/admin/AdminDto";
 import LoginDto from "@/libs/dto/admin/LoginDto";
 import Page from "../class/Page.class";
 import Post from "../class/Post.class";
-import { METHOD, METHODS, URLS } from "@/libs/constant/api.const";
+import {METHOD, METHODS, URLS} from "@/libs/constant/api.const";
 import PostDto from "@/libs/dto/admin/PostDto";
 import Series from "@/libs/class/Series.class";
 import SeriesDto from "@/libs/dto/admin/SeriesDto";
@@ -11,7 +11,7 @@ import Topic from "@/libs/class/Topic.class";
 import Site from "@/libs/class/Site.class";
 import SiteDto from "@/libs/dto/admin/SiteDto";
 // @ts-ignore
-import { exceptionHandler, getUrl, limcFetch } from "@/libs/api/common.api";
+import {exceptionHandler, getUrl, limcFetch} from "@/libs/api/common.api";
 
 /**
  * common Function
@@ -89,7 +89,7 @@ async function addOrUpdate<T>(url: URLS, isUpdate: boolean, body: any) {
 export async function togglePublished(id: string) {
   try {
     const response = await adminFetch(
-      getUrl(URLS.togglePublished, `${id}`),
+      getUrl(URLS.togglePublished, `/${id}`),
       METHODS.GET,
     );
     return response as boolean;
