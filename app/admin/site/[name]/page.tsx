@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
   getPostPageBySiteInAdmin,
   getSeriesBySiteInAdmin,
@@ -8,7 +8,6 @@ import {
   getTopicBySiteInAdmin,
 } from "@/libs/api/private.api";
 import PostList from "@/components/Post/List/PostList";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/Tab/AdminTab";
 import Loading from "@/components/Util/Loading";
 import SeriesList from "@/components/Series/List/SeriesList";
@@ -32,17 +31,14 @@ const buttons = [
 ];
 
 export default function AdminSiteDetail({
-  params,
-  searchParams,
+  params
 }: {
   params: { name: string };
-  searchParams: Params;
 }) {
   const [site, setSite] = useState<Site>();
   const [mode, setMode] = useState<string>("topic");
 
   const { name } = params;
-  const page = searchParams.page;
 
   useEffect(() => {
     getSiteInAdmin(name).then((site) => {
@@ -60,7 +56,6 @@ export default function AdminSiteDetail({
         <TopicList
           getFunc={getTopicBySiteInAdmin}
           isAdmin={true}
-          page={page}
           id={name}
         />
       )}
@@ -68,7 +63,6 @@ export default function AdminSiteDetail({
         <main className="w-full flex flex-col p-2">
           <PostList
             getFunc={getPostPageBySiteInAdmin}
-            page={page}
             id={name}
             isAdmin={true}
           />
@@ -78,7 +72,6 @@ export default function AdminSiteDetail({
         <SeriesList
           getFunc={getSeriesBySiteInAdmin}
           isAdmin={true}
-          page={page}
           id={name}
         />
       )}

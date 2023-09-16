@@ -1,14 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import {
-  getPostPageByTopic,
-  getSeriesByTopicInAdmin,
-  getTopicInAdmin,
-} from "@/libs/api/private.api";
+import React, {useEffect, useState} from "react";
+import {getPostPageByTopic, getSeriesByTopicInAdmin, getTopicInAdmin,} from "@/libs/api/private.api";
 import Topic from "@/libs/class/Topic.class";
 import PostList from "@/components/Post/List/PostList";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import AdminTab from "@/components/Admin/Tab/AdminTab";
 import TopicHeader from "@/app/admin/topic/[id]/TopicHeader";
 import Loading from "@/components/Util/Loading";
@@ -32,13 +27,11 @@ const buttons = [
 ];
 export default function AdminTopicDetail({
   params,
-  searchParams,
-}: { params: { id: string }; searchParams: Params }) {
+}: { params: { id: string } }) {
   const [topic, setTopic] = useState<Topic>();
   const [mode, setMode] = useState<string>("series");
 
   const { id } = params;
-  const page = searchParams.page;
 
   useEffect(() => {
     getTopicInAdmin(id).then((topic) => {
@@ -56,7 +49,6 @@ export default function AdminTopicDetail({
         <main className="w-full flex flex-col p-2">
           <PostList
             getFunc={getPostPageByTopic}
-            page={page}
             id={id}
             isAdmin={true}
           />
@@ -67,7 +59,6 @@ export default function AdminTopicDetail({
           <SeriesList
             getFunc={getSeriesByTopicInAdmin}
             isAdmin={true}
-            page={page}
             id={id}
           />
         </>

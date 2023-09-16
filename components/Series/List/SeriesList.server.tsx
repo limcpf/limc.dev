@@ -1,7 +1,7 @@
 import Page from "@/libs/class/Page.class";
 import Series from "@/libs/class/Series.class";
 import React from "react";
-import PageBar from "@/components/Post/PageBar";
+import PageBarSc from "@/components/Post/PageBarSc";
 import SeriesListItem from "@/components/Series/List/SeriesListItem";
 import AddBtn from "@/components/Admin/addBtn";
 
@@ -35,7 +35,7 @@ export default function SeriesListSC({
         </div>
       )}
 
-      <PageBar<Series> tPage={seriesPage} />
+      <PageBarSc<Series> tPage={seriesPage} />
     </main>
   );
 }

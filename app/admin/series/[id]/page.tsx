@@ -1,19 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Series from "@/libs/class/Series.class";
-import { getPostPageBySeries, getSeriesInAdmin } from "@/libs/api/private.api";
+import {getPostPageBySeries, getSeriesInAdmin} from "@/libs/api/private.api";
 import PostList from "@/components/Post/List/PostList";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 export default function AdminSeriesDetail({
   params,
-  searchParams,
-}: { params: { id: string }; searchParams: Params }) {
+}: { params: { id: string } }) {
   const [series, setSeries] = useState<Series>();
 
   const { id } = params;
-  const page = searchParams.page;
 
   useEffect(() => {
     getSeriesInAdmin(id).then((series) => {
@@ -60,7 +57,6 @@ export default function AdminSeriesDetail({
           <main className="w-full flex flex-col p-2">
             <PostList
               getFunc={getPostPageBySeries}
-              page={page}
               id={id}
               isAdmin={true}
             />
