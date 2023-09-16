@@ -1,19 +1,12 @@
-import { getPostPage } from "@/libs/api/post.api";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import PostListSC from "@/components/Post/List/PostList.server";
+'use client';
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Params;
-}) {
-  const page = searchParams.page;
+import {getPostPage} from "@/libs/api/post.api";
+import PostList from "@/components/Post/List/PostList";
 
-  const postPage = await getPostPage(page);
-
+export default async function Home() {
   return (
     <main className="w-full flex flex-col p-2">
-      <PostListSC postPage={postPage} />
+      <PostList getFunc={getPostPage} />
     </main>
   );
 }

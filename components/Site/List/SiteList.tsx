@@ -1,10 +1,10 @@
 "use client";
 
 import Page from "@/libs/class/Page.class";
-import React, { useEffect, useState } from "react";
-import { getListFunc } from "@/libs/api/api";
+import React, {useEffect, useState} from "react";
+import {getListFunc} from "@/libs/api/api";
 import Loading from "@/components/Util/Loading";
-import PageBar from "@/components/Post/PageBar";
+import PageBarSc from "@/components/Post/PageBarSc";
 import AddBtn from "@/components/Admin/addBtn";
 import Site from "@/libs/class/Site.class";
 import SiteListItem from "@/components/Site/List/SiteListItem";
@@ -51,7 +51,7 @@ export default function SiteList({
         <Loading />
       )}
 
-      {curPageSite && <PageBar<Site> tPage={curPageSite} />}
+      {curPageSite && <PageBarSc<Site> tPage={curPageSite} />}
     </main>
   );
 }

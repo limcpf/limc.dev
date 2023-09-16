@@ -2,7 +2,7 @@ import React from "react";
 import Page from "@/libs/class/Page.class";
 import Post from "@/libs/class/Post.class";
 import PostListItem from "@/components/Post/List/PostListItem";
-import PageBar from "@/components/Post/PageBar";
+import PageBarSc from "@/components/Post/PageBarSc";
 import AddBtn from "@/components/Admin/addBtn";
 
 export default function PostListSC({
@@ -27,7 +27,7 @@ export default function PostListSC({
         </div>
       )}
 
-      <PageBar<Post> tPage={postPage} />
+      <PageBarSc<Post> tPage={postPage} />
     </div>
   );
 }

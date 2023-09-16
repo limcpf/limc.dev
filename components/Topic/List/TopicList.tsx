@@ -1,25 +1,24 @@
 "use client";
 
 import Page from "@/libs/class/Page.class";
-import React, { useEffect, useState } from "react";
-import { getListFunc } from "@/libs/api/api";
+import React, {useEffect, useState} from "react";
+import {getListFunc} from "@/libs/api/api";
 import Loading from "@/components/Util/Loading";
-import PageBar from "@/components/Post/PageBar";
 import Topic from "@/libs/class/Topic.class";
 import TopicListItem from "@/components/Topic/List/TopicListItem";
 import AddBtn from "@/components/Admin/addBtn";
+import PageBar from "@/components/Post/PageBar";
 
 export default function TopicList({
   id,
-  page,
   getFunc,
   isAdmin,
 }: {
   id?: string;
-  page?: string;
   getFunc: getListFunc<Topic>;
   isAdmin?: boolean;
 }) {
+  const [curPage, setCurPage] = useState(1)
   const [curPageTopic, setCurPageTopic] = useState<Page<Topic>>();
 
   const callbackPageTopic = (pageTopic?: Page<Topic>) => {
@@ -27,9 +26,9 @@ export default function TopicList({
   };
 
   useEffect(() => {
-    if (id) getFunc(id, page).then(callbackPageTopic);
-    else getFunc(page || "1").then(callbackPageTopic);
-  }, [page]);
+    if (id) getFunc(id, `${curPage}`).then(callbackPageTopic);
+    else getFunc(`${curPage}`).then(callbackPageTopic);
+  }, [curPage]);
 
   const title = " text-center font-light";
 
@@ -58,7 +57,7 @@ export default function TopicList({
         <Loading />
       )}
 
-      {curPageTopic && <PageBar<Topic> tPage={curPageTopic} />}
+      {curPageTopic && <PageBar<Topic> tPage={curPageTopic} setPage={setCurPage}/>}
     </main>
   );
 }
