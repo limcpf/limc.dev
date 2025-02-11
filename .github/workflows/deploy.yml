@@ -1,0 +1,34 @@
+name: Deploy Quartz to Cloudflare Pages
+
+on:
+  workflow_dispatch:  # Vault에서 트리거될 때 실행
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Quartz repository
+        uses: actions/checkout@v3
+
+      - name: Clone Private Obsidian Vault
+        env:
+          VAULT_PAT: ${{ secrets.VAULT_PAT }}
+        run: |
+          git clone https://x-access-token:${VAULT_PAT}@github.com/limcpf/.obsdmd.git vault
+          cp -r vault/Areas/Blog ./content
+
+      - name: Install Quartz dependencies
+        run: npm install  # 필요 시 Quartz 관련 설치
+
+      - name: Build Quartz site
+        run: quartz build -o _site
+
+      - name: Publish
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: limc.dev
+          directory: _site
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
