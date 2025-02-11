@@ -2,10 +2,16 @@ name: Deploy Quartz to Cloudflare Pages
 
 on:
   workflow_dispatch:  # Vault에서 트리거될 때 실행
+  push:
+    branches:
+      - main  # main 브랜치에서
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, 'publish'))
 
     steps:
       - name: Checkout Quartz repository
