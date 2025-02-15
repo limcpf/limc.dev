@@ -41,7 +41,7 @@ const config: QuartzConfig = {
 					textHighlight: "#fff23688",
 				},
 				darkMode: {
-					light: "#7F5539",
+					light: "#9e7255",
 					lightgray: "#9C6644",
 					gray: "lightgray",
 					darkgray: "#EDE0D4",
@@ -63,9 +63,9 @@ const config: QuartzConfig = {
 			Plugin.SyntaxHighlighting({
 				theme: {
 					light: "github-light",
-					dark: "github-dark",
+					dark: "github-dark-dimmed",
 				},
-				keepBackground: false,
+				keepBackground: true,
 			}),
 			Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
 			Plugin.GitHubFlavoredMarkdown(),
