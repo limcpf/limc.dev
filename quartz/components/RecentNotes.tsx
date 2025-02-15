@@ -46,6 +46,7 @@ export default ((userOpts?: Partial<Options>) => {
 				<h3>{opts.title ?? i18n(cfg.locale).components.recentNotes.title}</h3>
 				<ul class="recent-ul">
 					{pages.slice(0, opts.limit).map((page) => {
+						if (page.slug === "index") return;
 						const title =
 							page.frontmatter?.title ??
 							i18n(cfg.locale).propertyDefaults.title;
